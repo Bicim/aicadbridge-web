@@ -1,0 +1,13 @@
+{
+  "name": "aicadbridge-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AICADBridge resmi tanitim sitesi (statik, scroll odakli, TR/EN)",
+  "scripts": {
+    "serve": "node tests/server.js",
+    "verify": "node tests/verify.js"
+  },
+  "devDependencies": {
+    "playwright": "1.64.0"
+  }
+}
