@@ -1,0 +1,77 @@
+/* ============================================================
+   tokens.css - AICADBridge tanitim sitesi tasarim belirtecleri
+   Kaynak: design-dna/pear.dna.json (zemin, ritim, ton) +
+           design-dna/aicadbridge-ui.dna.json (urun rengi, rozet dili)
+   Kural: 6 renk rolu + 1 tekil aksan. Saf siyah yok.
+   Aksan, urunun GERCEK arayuz degeridir (#00b8d4).
+   ============================================================ */
+
+:root {
+  /* --- Renk rolleri (6) --- */
+  --paper:        #faf9f7;              /* sicak kirik beyaz zemin */
+  --paper-elev:   #ffffff;              /* kart / figur yuzeyi */
+  --ink:          #16140f;              /* sicak siyaya yakin metin */
+  --ink-2:        #6d6558;              /* tonlu ikincil metin (gri degil) */
+  --line:         rgba(22, 20, 15, .11);/* sac cizgi */
+  --ink-inv:      #ecebe6;              /* koyu bolumde metin */
+
+  /* --- Tekil aksan (urun neon'u) --- */
+  --accent:       #00b8d4;              /* dekoratif cizgi / rozet / vurgu */
+  --accent-ink:   #00748c;              /* acik zeminde metin-guvenli hali */
+
+  /* --- Koyu bolum (demo sahnesi: urun yuzeyleri) --- */
+  --night:        #0b0b0a;              /* sicak kara, saf siyah degil */
+  --night-elev:   #131311;              /* kod paneli yuzeyi */
+  --night-line:   rgba(236, 235, 230, .13);
+  --ink-inv-2:    #9a968c;              /* koyu zeminde ikincil metin */
+
+  /* Urun arayuzundeki GERCEK durum renkleri (UI DNA) */
+  --ok:    #4ec9b0;
+  --warn:  #e5c07b;
+  --err:   #f48771;
+
+  /* --- Tipografi (2 aile + bilincli mono istisnasi) --- */
+  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace;
+
+  /* Akiskan olcek: dev italik serif basliklar, 45-75ch govde */
+  --t-hero: clamp(2.9rem, 8.2vw, 6.9rem);
+  --t-h2:   clamp(2.1rem, 5.2vw, 4.1rem);
+  --t-h3:   clamp(1.25rem, 2.2vw, 1.6rem);
+  --t-body: clamp(1rem, 1.05vw, 1.125rem);
+  --t-small: .9375rem;
+  --t-kicker: .78rem;
+
+  /* --- Bosluk: 4px tabanli olcek --- */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  --s9: 96px; --s10: 128px;
+
+  /* Bolum dolgusu: akiskan, buyuk nefes (pear ritmi) */
+  --pad-section: clamp(72px, 13vh, 190px);
+  --pad-section-tight: clamp(56px, 8vh, 110px);
+
+  /* Olcu (measure): govde 45-75ch */
+  --measure: 62ch;
+  --measure-wide: 74ch;
+
+  --radius: 14px;
+  --radius-s: 8px;
+
+  /* Hareket */
+  --ease: cubic-bezier(.22, .61, .2, 1);
+  --dur: .3s;
+
+  /* Engine'in yayinladigi zemin rengi (data-sc-drift) */
+  --sc-canvas: var(--paper);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* NOT: Bu site bilinclu olarak tek-temadir (pear.no mantigi:
+     sicak acik zemin + icindeki TEK karanlik nesne urun).
+     Sistem tercihi yalnizca kod paneli kontrastini etkilemez;
+     sayfa zemini bilincli tasarim karariyla acik kalir. */
+}
