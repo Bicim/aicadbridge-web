@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AICADBridge | Fusion 360 için AI CAD Studio</title>
+  <meta name="description" content="AICADBridge, Fusion 360'a doğal dille komut vermenizi sağlayan açık kaynak yapay zekâ eklentisidir. Planlama, kod üretimi, doğrulama ve kendini onarma tek bir akışta.">
+
+  <!-- Kanonik + dil: alan adı GitHub Pages deseni; özel alan bağlanınca DECISIONS.md notuyla güncellenir -->
+  <link rel="canonical" href="https://bicim.github.io/aicadbridge-web/">
+  <link rel="alternate" hreflang="tr" href="https://bicim.github.io/aicadbridge-web/">
+  <link rel="alternate" hreflang="en" href="https://bicim.github.io/aicadbridge-web/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://bicim.github.io/aicadbridge-web/">
+
+  <meta name="theme-color" content="#faf9f7">
+
+  <!-- Open Graph + Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AICADBridge">
+  <meta property="og:title" content="AICADBridge | Fusion 360 için AI CAD Studio">
+  <meta property="og:description" content="Fusion 360'a cümleyle konuş. Plan, kod, doğrulama ve kendini onarma tek akışta; MIT lisanslı açık kaynak.">
+  <meta property="og:url" content="https://bicim.github.io/aicadbridge-web/">
+  <meta property="og:image" content="https://bicim.github.io/aicadbridge-web/assets/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AICADBridge | Fusion 360 için AI CAD Studio">
+  <meta name="twitter:description" content="Fusion 360'a cümleyle konuş. Plan, kod, doğrulama ve kendini onarma tek akışta.">
+  <meta name="twitter:image" content="https://bicim.github.io/aicadbridge-web/assets/images/og.png">
+
+  <!-- Yazı tipleri: 2 aile (editoryal serif + Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="css/scrollcraft.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2300b8d4' stroke-width='2.6'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%2300b8d4'/%3E%3C/svg%3E">
+
+  <!-- Yapılandırılmış veri: yazılım + SSS -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AICADBridge",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Windows, macOS",
+    "description": "Fusion 360 için açık kaynak yapay zekâ eklentisi: doğal dil komutu, plan ve kod üretimi, doğrulama ve kendini onarma döngüsü.",
+    "url": "https://github.com/Bicim/AICADBridge",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "license": "https://opensource.org/licenses/MIT",
+    "author": { "@type": "Person", "name": "Yunus Ayyıldız" },
+    "inLanguage": ["tr", "en"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Ücretli mi?", "acceptedAnswer": { "@type": "Answer", "text": "Kod MIT lisansıyla açık kaynak. Yalnızca seçtiğin AI sağlayıcının API maliyeti sana aittir; Ollama veya LM Studio ile her şey lokal ve ücretsiz çalışır." } },
+      { "@type": "Question", "name": "Hangi AI modelleri kullanılıyor?", "acceptedAnswer": { "@type": "Answer", "text": "Claude, GPT, Gemini ve DeepSeek API'leri ile; Ollama veya LM Studio üzerinden lokal modeller desteklenir. Model adını kendi sağlayıcından girersin; planner ve coder farklı modeller olabilir." } },
+      { "@type": "Question", "name": "Hangi işletim sistemlerinde çalışır?", "acceptedAnswer": { "@type": "Answer", "text": "Windows ve macOS; Fusion 360'ın çalıştığı her yerde." } },
+      { "@type": "Question", "name": "Verilerim nereye gidiyor?", "acceptedAnswer": { "@type": "Answer", "text": "Komutlar yalnızca yapılandırdığın sağlayıcıya gider. Ollama veya LM Studio ile hiçbir şey bilgisayarından çıkmaz. Tarayıcı modu köprüsü yalnızca localhost'ta dinler." } },
+      { "@type": "Question", "name": "Tarayıcı modu nasıl çalışıyor?", "acceptedAnswer": { "@type": "Answer", "text": "Eklenti localhost:49876 üzerinde küçük bir yerel sunucu açar. index.html'i tarayıcıda açıp aynı arayüzü kullanırsın; trafik makinenin dışına çıkmaz." } },
+      { "@type": "Question", "name": "Üretilen kod hata verirse ne olur?", "acceptedAnswer": { "@type": "Answer", "text": "Self-healing döngüsü hatayı okur, modele iletir ve düzeltilmiş kodu yeniden çalıştırır; üç denemeye kadar. Doğrulama turları sonucu planla karşılaştırır. Garanti değil, onarım döngüsü." } }
+    ]
+  }
+  </script>
+
+  <script src="js/scrollcraft.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div data-sc-progress aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="#top">AICAD<b>Bridge</b></a>
+    <ul class="nav__links">
+      <li><a href="#nasil" data-i18n="nav.how">Nasıl çalışır</a></li>
+      <li><a href="#demo" data-i18n="nav.demo">Demo</a></li>
+      <li><a href="#kurulum" data-i18n="nav.install">Kurulum</a></li>
+      <li><a href="#sss" data-i18n="nav.faq">Sorular</a></li>
+    </ul>
+    <button class="nav__lang" id="langToggle" type="button" aria-label="Change language">EN</button>
+    <a class="btn btn--primary" href="https://github.com/Bicim/AICADBridge" target="_blank" rel="noopener">
+      <span data-i18n="nav.cta">GitHub'a Git</span><span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= PERDE 1: HERO ================= -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div data-sc-in data-sc-stagger="110">
+          <p class="kicker" data-i18n="hero.kicker">AICADBridge · Fusion 360 için yapay zekâ destekli CAD stüdyosu</p>
+          <h1 data-i18n="hero.h1">Fusion 360'a <em>cümleyle konuş.</em></h1>
+          <p class="tagline" data-i18n="hero.tagline">Sen niyeti yazarsın. <em>Model, koddan değil cümleden başlasın.</em></p>
+
+          <div class="triad" role="list">
+            <span role="listitem" data-i18n="hero.triad1">Komutu yazarsın.</span>
+            <span role="listitem" data-i18n="hero.triad2">Kod üretilir.</span>
+            <span role="listitem" data-i18n="hero.triad3">Fusion çizer.</span>
+          </div>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="https://github.com/Bicim/AICADBridge" target="_blank" rel="noopener">
+              <span data-i18n="hero.cta1">GitHub'dan Kur</span><span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="#nasil"><span data-i18n="hero.cta2">Nasıl çalışır</span></a>
+          </div>
+
+          <div class="cmdline" id="heroCmd" aria-label="Örnek komut">
+            <span class="cmdline__prompt" aria-hidden="true">»</span>
+            <span class="cmdline__text" data-i18n="hero.cmd">50mm çapında, 80mm yüksekliğinde, merkezinde 20mm delik bulunan bir silindir çiz</span>
+            <span class="cmdline__caret" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <figure class="product-shot product-shot--portrait" data-sc-in>
+          <img src="assets/images/app_welcome.png" width="460" height="900" alt="Fusion 360 içinde açık renk temayla AICADBridge AI CAD Studio paleti: karşılama ekranı, sağlayıcı ve model seçimi" loading="eager" decoding="async">
+          <figcaption data-i18n="hero.caption">Gerçek arayüz: Fusion 360 içindeki AI CAD Studio paleti.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= PERDE 2: NASIL ÇALIŞIR ================= -->
+    <section class="chapter" id="nasil">
+      <div class="wrap">
+        <p class="kicker" data-sc-in data-i18n="how.kicker">Nasıl çalışır</p>
+        <h2 data-sc-in data-i18n="how.h2">Bir cümle yazarsın, <em>model gelir.</em></h2>
+
+        <div class="how-grid">
+          <ol class="steps" data-sc-in data-sc-stagger="150">
+            <li class="step">
+              <span class="step__no">01</span>
+              <h3 data-i18n="how.s1t">Komut</h3>
+              <p data-i18n="how.s1p">Parçayı doğal dille anlatırsın, Türkçe ya da İngilizce. Öğrenilecek sözdizimi yoktur: komut, yüksek sesle söyleyeceğin cümledir.</p>
+            </li>
+            <li class="step">
+              <span class="step__no">02</span>
+              <h3 data-i18n="how.s2t">Plan ve kod</h3>
+              <p data-i18n="how.s2p">Planner modeli cümleyi adım adım bir plana çevirir; coder modeli her adım için gerçek Fusion 360 Python kodunu, dahili snippet kütüphanesinden beslenerek yazar. Plan da kod da her zaman görünürdür.</p>
+            </li>
+            <li class="step">
+              <span class="step__no">03</span>
+              <h3 data-i18n="how.s3t">Fusion'da anında, doğrulanmış</h3>
+              <p data-i18n="how.s3p">Kod Fusion oturumunda saniyeler içinde çalışır. Doğrulama döngüsü sonucu planla karşılaştırır: geometrik kontroller ve viewport görüntüsü üzerinden görsel kontrol. Uymayanı onarır.</p>
+            </li>
+          </ol>
+
+          <figure class="product-shot product-shot--portrait" data-sc-in>
+            <img src="assets/images/app_pipeline.png" width="460" height="900" alt="AICADBridge paletinde iki aşamalı üretim hattı: plan adım listesi, doğrulama satırları ve görsel kontrol durumu" loading="lazy" decoding="async">
+            <figcaption data-i18n="how.caption">Gerçek arayüz: plan adımları, doğrulama ve görsel kontrol satırları.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PERDE 3-5: DEMO (KOYU BÖLÜM, TE ZİRVE) ============ -->
+    <section class="demo" id="demo" data-sc-act="pin" data-sc-span="4.2" data-sc-dwell="0.2" data-sc-drift="#0b0b0a">
+      <div class="stage" data-sc-stage>
+        <div class="wrap">
+          <div class="demo__copy">
+            <p class="kicker" data-sc-cue="0.02 1" data-i18n="demo.kicker">Demo</p>
+            <h2 data-sc-cue="0.03 1" data-i18n="demo.h2">Söyle, <em>Fusion çizsin.</em></h2>
+
+            <div class="cmdline">
+              <span class="cmdline__prompt" aria-hidden="true">»</span>
+              <span class="cmdline__text" data-sc-cue="0.06 1" data-sc-kinetic="chars" data-sc-rise="0" data-i18n="demo.cmd">Flanş modeline 4 adet eşit aralıklı M6 cıvata deliği aç</span>
+            </div>
+
+            <div class="badges">
+              <p class="badge badge--error" data-sc-cue="0.54 0.68" data-i18n="demo.badge-error"><b>HATA</b>&nbsp;Kesilecek veya kesişecek hedef gövde bulunamadı</p>
+              <p class="badge badge--healing" data-sc-cue="0.64 0.76" data-i18n="demo.badge-healing"><b>ONARIM</b>&nbsp;Hata okundu, düzeltilmiş kod deneniyor (1/3)</p>
+              <p class="badge badge--success" data-sc-cue="0.74 1" data-i18n="demo.badge-success"><b>TAMAMLANDI</b>&nbsp;Model doğrulanarak oluşturuldu</p>
+            </div>
+
+            <p class="verify-line" data-sc-cue="0.80 1" data-i18n="demo.verify"><b>Doğrulama</b>&nbsp;·&nbsp;gövde 0→1&nbsp;·&nbsp;silindirik yüz 0→4&nbsp;·&nbsp;plan ile uyumlu</p>
+
+            <div class="slider-demo" data-sc-cue="0.84 1">
+              <div class="track">
+                <div class="fill"></div>
+                <div class="thumb" aria-hidden="true"></div>
+              </div>
+              <div class="slider-demo__labels">
+                <span data-i18n="demo.slider-label">Dış çap</span>
+                <b id="sliderVal">Ø 40 mm</b>
+              </div>
+              <p class="schematic-note" data-i18n="demo.slider-note">Parametrik kaydırıcılar modeli canlı günceller.</p>
+            </div>
+          </div>
+
+          <div class="demo__visual">
+            <div class="codepanel" aria-label="Üretilen Fusion 360 Python kodu">
+              <div class="codepanel__bar">
+                <i></i><i></i><i></i>
+                <span class="dim" style="margin-left:auto; color:var(--ink-inv-2)">flange_bolts.py</span>
+              </div>
+              <p class="ln opt" data-sc-cue="0.24 1">root = design.rootComponent</p>
+              <p class="ln opt" data-sc-cue="0.28 1">sketch = root.sketches.add(root.xYConstructionPlane)</p>
+              <p class="ln" data-sc-cue="0.33 1">circles = sketch.sketchCurves.sketchCircles</p>
+              <p class="ln" data-sc-cue="0.38 1">circles.addByCenterRadius(center, ValueInput.createByReal(0.3))</p>
+              <p class="ln" data-sc-cue="0.44 1">prof = sketch.profiles.item(0)</p>
+              <p class="ln" data-sc-cue="0.50 1" id="fixedLine">ext_input.setDistanceExtent(False, ValueInput.createByReal(1.0))</p>
+            </div>
+
+            <figure class="schematic" data-sc-cue="0.36 1" data-sc-rise="0">
+              <svg id="flange" viewBox="0 0 340 340" role="img" aria-label="Flanş şeması: 100 milimetre çapında gövde, 4 adet M6 cıvata deliği">
+                <!-- Sıralı çizim: her .draw yolu pathLength=1, dashoffset --sc-p ile sürülür.
+                     .ghost = dash'li yapı çizgileri, sahneyle birlikte belirir. -->
+                <circle class="ghost" cx="170" cy="170" r="104"/>
+                <line class="ghost" x1="8" y1="170" x2="332" y2="170"/>
+                <line class="ghost" x1="170" y1="8" x2="170" y2="332"/>
+                <circle class="draw" pathLength="1" cx="170" cy="170" r="150"/>
+                <circle class="draw" pathLength="1" cx="170" cy="170" r="62"/>
+                <circle class="draw hole" pathLength="1" cx="170" cy="170" r="26"/>
+                <circle class="draw hole" pathLength="1" cx="274" cy="170" r="15"/>
+                <circle class="draw hole" pathLength="1" cx="170" cy="274" r="15"/>
+                <circle class="draw hole" pathLength="1" cx="66" cy="170" r="15"/>
+                <circle class="draw hole" pathLength="1" cx="170" cy="66" r="15"/>
+                <text class="dim" x="170" y="24" text-anchor="middle">Ø100</text>
+                <text class="dim" x="292" y="196">4 × M6</text>
+                <text class="dim" x="170" y="210" text-anchor="middle">R26</text>
+              </svg>
+              <figcaption class="schematic-note" data-i18n="demo.note">Şematik üst görünüş: 100 mm flanş, bolt circle üzerinde 4 × M6.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PERDE 5b: PARAMETRİK ================= -->
+    <section class="chapter" id="parametre" data-sc-act="flow" data-sc-drift="#faf9f7">
+      <div class="wrap par-grid">
+        <div>
+          <p class="kicker" data-sc-in data-i18n="par.kicker">Parametrik</p>
+          <h2 data-sc-in data-i18n="par.h2">Ölçüyü kaydır, <em>model güncellensin.</em></h2>
+          <p data-sc-in data-i18n="par.p1">Üretilen modeller kullanıcı parametreleri üzerine kurulur. Paletttaki kaydırıcıyı çektiğinde kod yeniden çalışır ve gövde saniyeler içinde canlı güncellenir.</p>
+          <p data-sc-in data-i18n="par.p2">Çapı, yüksekliği, delik sayısını değiştir; cümleyi yazdığın kolaylıkta.</p>
+        </div>
+        <figure class="product-shot product-shot--portrait" data-sc-in>
+          <img src="assets/images/app_parametric.png" width="460" height="900" alt="AICADBridge paletinde parametrik kaydırıcılar ve kullanıcı parametreleri: çap ve yükseklik değerleri" loading="lazy" decoding="async">
+          <figcaption data-i18n="par.caption">Gerçek arayüz: parametrik kaydırıcılar ve kullanıcı parametreleri.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= PERDE 6: İKİ MOD + SAĞLAYICILAR ================= -->
+    <section class="chapter" id="modlar">
+      <div class="wrap">
+        <p class="kicker" data-sc-in data-i18n="modes.kicker">İki mod</p>
+        <h2 data-sc-in data-i18n="modes.h2">Paletten ya da <em>tarayıcıdan.</em></h2>
+
+        <div class="modes" data-sc-in data-sc-stagger="160">
+          <div class="mode-card">
+            <span class="mode-tag" data-i18n="modes.c1tag">Fusion içinde</span>
+            <h3 data-i18n="modes.c1t">Palet</h3>
+            <p data-i18n="modes.c1p">Fusion 360'ın içinde sabitlenen panel. Komutlar, plan listesi, kod ve durum akışı tek yerde, modelinin hemen yanında.</p>
+          </div>
+          <div class="mode-card">
+            <span class="mode-tag" data-i18n="modes.c2tag">Harici</span>
+            <h3 data-i18n="modes.c2t">Tarayıcı</h3>
+            <p data-i18n="modes.c2p">index.html'i herhangi bir tarayıcıda aç, localhost:49876 üzerindeki yerel köprü üzerinden aynı arayüzü kullan. Trafik makinenin dışına çıkmaz.</p>
+          </div>
+        </div>
+
+        <div class="providers" data-sc-in>
+          <p class="providers__list">Claude <em>·</em> GPT <em>·</em> Gemini <em>·</em> DeepSeek <em>·</em> Ollama <em>·</em> LM Studio</p>
+          <p data-i18n="modes.providers-p">Sağlayıcıyı ve API anahtarını sen getirsin; lokal modeller tamamen çevrimdışı çalışır. Planner ve coder farklı modeller olabilir; arayüzden veya .env dosyasından yapılandırılır.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PERDE 7: AÇIK NOT ================= -->
+    <section class="chapter" id="aciknot">
+      <div class="wrap">
+        <p class="statement" data-sc-in data-i18n="note.statement">Sihirli bir kutu değil, <em>görülebilir bir üretim hattı.</em></p>
+
+        <div class="note-blocks" data-sc-in data-sc-stagger="180">
+          <div class="note-block">
+            <span class="label" data-i18n="note.b1label">Açık not</span>
+            <h3 data-i18n="note.b1t">Nedir, nedir değil</h3>
+            <ul>
+              <li data-i18n="note.b1l1"><b>Fusion 360 gerekir.</b> Bu bir eklentidir; tek başına CAD aracı değildir.</li>
+              <li data-i18n="note.b1l2"><b>Kendi API anahtarın gerekir.</b> Bulut sağlayıcılar kendi API'lerini faturalandırır; Ollama ve LM Studio ücretsiz ve lokal çalışır.</li>
+              <li data-i18n="note.b1l3"><b>AI kodu senin oturumunda çalışır.</b> Üretmeden önce önemli tasarımlarını kaydet.</li>
+              <li data-i18n="note.b1l4"><b>Sürüm 1.0.0.</b> Genç ve hızla gelişen bir proje.</li>
+            </ul>
+          </div>
+          <div class="note-block">
+            <span class="label" data-i18n="note.b2label">Kimler için değil</span>
+            <h3 data-i18n="note.b2t">Pas geçebilirsin</h3>
+            <ul>
+              <li data-i18n="note.b2l1">Fusion 360 kullanmıyorsan.</li>
+              <li data-i18n="note.b2l2">Tek tıkla kusursuz model bekliyorsan.</li>
+              <li data-i18n="note.b2l3">API anahtarı ya da lokal model kurmak istemiyorsan.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PERDE 8: KURULUM ================= -->
+    <section class="chapter" id="kurulum">
+      <div class="wrap">
+        <p class="kicker" data-sc-in data-i18n="install.kicker">Kurulum</p>
+        <h2 data-sc-in data-i18n="install.h2">Dört adım, <em>beş dakika.</em></h2>
+
+        <ol class="install" data-sc-in data-sc-stagger="150">
+          <li>
+            <span class="step__no">01</span>
+            <h3 data-i18n="install.s1t">Klonla</h3>
+            <p data-i18n="install.s1p">Depoyu GitHub'dan klonla.</p>
+            <code>git clone https://github.com/Bicim/AICADBridge.git</code>
+          </li>
+          <li>
+            <span class="step__no">02</span>
+            <h3 data-i18n="install.s2t">AddIns'e taşı</h3>
+            <p data-i18n="install.s2p">Klasörü Fusion'ın AddIns dizinine taşı.</p>
+          </li>
+          <li>
+            <span class="step__no">03</span>
+            <h3 data-i18n="install.s3t">Anahtarını ekle</h3>
+            <p data-i18n="install.s3p">.env.example dosyasını .env olarak kopyala, sağlayıcı anahtarını yapıştır. Ollama için anahtar gerekmez.</p>
+          </li>
+          <li>
+            <span class="step__no">04</span>
+            <h3 data-i18n="install.s4t">Çalıştır</h3>
+            <p data-i18n="install.s4p">Fusion'da: Utilities sekmesi, ADD-INS, AICADBridge'i çalıştır. Palet açılır.</p>
+          </li>
+        </ol>
+
+        <div class="install-shots">
+          <figure class="product-shot product-shot--portrait" data-sc-in>
+            <img src="assets/images/app_settings.png" width="460" height="1000" alt="AICADBridge paletinde sağlayıcı ayarları: planner ve coder model seçimleri" loading="lazy" decoding="async">
+            <figcaption data-i18n="install.caption">Gerçek arayüz: palet içinde sağlayıcı ayarları.</figcaption>
+          </figure>
+          <figure class="product-shot" data-sc-in>
+            <img src="assets/images/github_repo.png" width="1280" height="860" alt="GitHub üzerinde Bicim organizasyonunun AICADBridge deposu" loading="lazy" decoding="async">
+            <figcaption>Bicim/AICADBridge · github.com/Bicim/AICADBridge</figcaption>
+          </figure>
+        </div>
+
+        <div class="install-cta" data-sc-in>
+          <a class="btn btn--primary" href="https://github.com/Bicim/AICADBridge" target="_blank" rel="noopener">
+            <span data-i18n="install.cta">GitHub'dan Kur</span><span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SSS ================= -->
+    <section class="chapter" id="sss">
+      <div class="wrap">
+        <p class="kicker" data-sc-in data-i18n="faq.kicker">SSS</p>
+        <h2 data-sc-in data-i18n="faq.h2">Daha önce <em>sorulanlar.</em></h2>
+
+        <div class="faq" data-sc-in>
+          <details>
+            <summary><span data-i18n="faq.q1">Ücretli mi?</span><span class="pmarker" aria-hidden="true">+</span></summary>
+            <p data-i18n="faq.a1">Kod MIT lisansıyla açık kaynak. Yalnızca seçtiğin AI sağlayıcının API maliyeti sana aittir; Ollama veya LM Studio ile her şey lokal ve ücretsiz çalışır.</p>
+          </details>
+          <details>
+            <summary><span data-i18n="faq.q2">Hangi AI modelleri kullanılıyor?</span><span class="pmarker" aria-hidden="true">+</span></summary>
+            <p data-i18n="faq.a2">Claude, GPT, Gemini ve DeepSeek API'leri ile; Ollama veya LM Studio üzerinden lokal modeller desteklenir. Model adını kendi sağlayıcından girersin; planner ve coder farklı modeller olabilir.</p>
+          </details>
+          <details>
+            <summary><span data-i18n="faq.q3">Hangi işletim sistemlerinde çalışır?</span><span class="pmarker" aria-hidden="true">+</span></summary>
+            <p data-i18n="faq.a3">Windows ve macOS; Fusion 360'ın çalıştığı her yerde.</p>
+          </details>
+          <details>
+            <summary><span data-i18n="faq.q4">Verilerim nereye gidiyor?</span><span class="pmarker" aria-hidden="true">+</span></summary>
+            <p data-i18n="faq.a4">Komutlar yalnızca yapılandırdığın sağlayıcıya gider. Ollama veya LM Studio ile hiçbir şey bilgisayarından çıkmaz. Tarayıcı modu köprüsü yalnızca localhost'ta dinler.</p>
+          </details>
+          <details>
+            <summary><span data-i18n="faq.q5">Tarayıcı modu nasıl çalışıyor?</span><span class="pmarker" aria-hidden="true">+</span></summary>
+            <p data-i18n="faq.a5">Eklenti localhost:49876 üzerinde küçük bir yerel sunucu açar. index.html'i tarayıcıda açıp aynı arayüzü kullanırsın; trafik makinenin dışına çıkmaz.</p>
+          </details>
+          <details>
+            <summary><span data-i18n="faq.q6">Üretilen kod hata verirse ne olur?</span><span class="pmarker" aria-hidden="true">+</span></summary>
+            <p data-i18n="faq.a6">Self-healing döngüsü hatayı okur, modele iletir ve düzeltilmiş kodu yeniden çalıştırır; üç denemeye kadar. Doğrulama turları sonucu planla karşılaştırır. Garanti değil, onarım döngüsü.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer__close" data-i18n="footer.close">Söyle, <em>Fusion çizsin.</em></p>
+      <div class="footer__meta">
+        <span>MIT · v1.0.0 · Windows &amp; macOS</span>
+        <span>Yunus Ayyıldız</span>
+        <a href="https://github.com/Bicim/AICADBridge/issues" target="_blank" rel="noopener" data-i18n="footer.issues">Soru ve sorunlar</a>
+      </div>
+      <p class="footer__legal" data-i18n="footer.legal">AICADBridge bağımsız bir projedir; Autodesk ile bağlantılı veya onun tarafından onaylanmış değildir. Fusion 360, Autodesk'in tescilli markasıdır.</p>
+    </div>
+  </footer>
+</body>
+</html>
