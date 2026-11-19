@@ -1,58 +1,37 @@
 # aicadbridge-web
 
-AICADBridge'in resmi tanıtım sitesi. Statik, framework'süz, tek sayfa; TR varsayılan + EN.
-Ürün repo'su: [Bicim/AICADBridge](https://github.com/Bicim/AICADBridge)
+AICADBridge'in tanıtım sitesi. Statik, framework'süz tek sayfa; koyu teknik tasarım; TR varsayılan + EN.
+Ürün: [Web Studio](https://github.com/Bicim/aicadbridge-studio) · [Fusion eklentisi](https://github.com/Bicim/AICADBridge) · [Bağlayıcı eklentiler](https://github.com/Bicim/aicadbridge-connectors)
 
 ## Yapı
 
 ```
-index.html              Tek sayfa: 8 perdelik editoryal akış, tek zirne (Perde 4: self-healing)
-404.html                Kendine yeten 404 (iç stiller; kök dışı yollarda da çalışır)
-css/
-  scrollcraft.css       scroll-craft engine (DOKUNULMAZ - kopya)
-  tokens.css            6 renk rolü + 1 aksan + 2 aile (design-dna birleşimi)
-  base.css              Sıfırlama, tipografi, erişilebilirlik
-  components.css        Bileşenler + imza hareketin CSS tarafı
-js/
-  scrollcraft.js        scroll-craft engine (DOKUNULMAZ - kopya)
-  main.js               Engine mount, TR/EN sözlük, imza hareket sürücüsü
-design-dna/             pear.dna.json + aicadbridge-ui.dna.json (Faz 1 teslimatları)
-assets/images/          GERÇEK palet ekran görüntüleri + og.png (üretim: assets/og-src.html)
-BRIEF.md                Orijinal brief (tek gerçek talimat)
-PROPOSAL.md             Faz 2 yaratıcı yön (onaylı)
-FINGERPRINTS.md         Yasak kalıp denetim günlüğü
-DECISIONS.md            Karar günlüğü
-tests/                  server.js (statik sunucu) + verify.js (Faz 5 doğrulama)
+index.html        Tek sayfa: hero (patlatılmış görünüş SVG) · 01 yetenekler · 02 entegrasyonlar ·
+                  03 nasıl çalışır · 04 veri güvenliği · 05 fiyatlar · 06 SSS · 07 indirmeler
+css/site.css      Token'lar (:root) + tüm bileşenler; tek aksan #00b8d4
+js/site.js        Studio bağlantıları (data-app), TR/EN sözlüğü, sekmeler, fiyat dönemi, figür animasyonu
+downloads/        Eklenti zip'leri (aicadbridge-connectors/tools/bundle.py üretir)
+404.html          Kendine yeten 404
+tests/            server.js (statik sunucu) + verify.js (playwright doğrulama)
 ```
 
 ## Çalıştırma
 
 ```bash
 npm install          # yalnızca doğrulama bağımlılığı: playwright
-npm run serve        # http://localhost:8124 statik sunucu
-npm run verify       # Faz 5: ölü kaydırma, opaklık sözleşmesi, kontrast, taşma,
-                     # ekran görüntüleri + contact sheet, reduced-motion geçişi
+npm run serve        # http://localhost:8124
+npm run verify       # 24 kontrol: hata, 390/768/1440 taşma, bağlantılar, fiyat/dil geçişi,
+                     # indirmeler, kontrast, em-dash yasağı; ekran görüntüleri tests/screenshots/
 ```
 
-Doğrulama çıktısı: `VALIDATION.md` + `tests/screenshots/`.
+## Kurallar
 
-## Tasarım sistemi
-
-- **Zemin**: sıcak kırık beyaz `#faf9f7`; sayfadaki TEK karanlık yüzeyler ürün figürleri ve demo sahnesi.
-- **Aksan**: `#00b8d4` (ürün arayüzünün gerçek neon'u; açık zeminde metin için `#00748c`).
-- **Durum renkleri**: `#f48771` / `#e5c07b` / `#4ec9b0` (ürün arayüzünden).
-- **Yazı**: Instrument Serif (italik vurgu) + Inter (gövde); mono bilinçli istisna.
-- **Hareket**: scroll-craft engine'i `--sc-p` yayınlar; imza hareket (komut yazımı, kod satırları,
-  flanş çizimi, onarım dizisi, slider) bu değerden sürülür. Engine dosyaları değiştirilmez.
+- Fiyatlar ve plan maddeleri bulut API'sindeki `billing.PLANS` ile aynı tutulur.
+- Em-dash kullanılmaz (verify kontrol eder).
+- Kaydırmaya bağlı gizleme/belirme animasyonu yok: içerik her koşulda görünür.
+- `data-app` bağlantıları yerelde `localhost:5173`, yayında `bicim.github.io/aicadbridge-studio` adresine gider.
 
 ## Dağıtım
 
-GitHub Pages (repo Ayarlar → Pages → main / root). Kanonik URL deseni
-`https://bicim.github.io/aicadbridge-web/` — özel alan bağlanırsa DECISIONS.md D3'teki
-bul-değiştir listesi uygulanır.
-
-## Varlık kaynakları ve araç kullanımı (dürüstlük notu)
-
-- Tüm palet görüntüleri **gerçek arayüzden** alındı; sahte dashboard çizilmedi.
-- `og.png`, `assets/og-src.html` tipografik kartının headless ekran görüntüsüdür.
-- pear.no yalnızca kalıp kaynağıdır (BRIEF §2.1); metin veya medya kopyalanmadı.
+GitHub Pages (main / root). Eski açık temalı tasarımın süreç belgeleri (BRIEF, PROPOSAL, DECISIONS,
+FINGERPRINTS, VALIDATION, design-dna) tarihsel kayıt olarak duruyor; yeni tasarımda kullanılmıyor.

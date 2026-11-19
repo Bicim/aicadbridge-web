@@ -22,4 +22,4 @@ python tools/bundle.py          # ../aicadbridge-web/downloads/*.zip üretir
 python -m pytest -q tests       # canlı API + yerel Supabase ile uçtan uca
 ```
 
-Lisans: Blender eklentisi GPL-3.0-or-later (bpy kullanır); diğerleri projenin lisansı.
+Lisans: `blender/` altındaki eklenti (ve onunla dağıtılan `aicad_link.py` kopyası) GPL-3.0-or-later, bkz. `blender/aicadbridge_link/LICENSE`. Diğer dosyalar için lisans henüz belirlenmedi.
