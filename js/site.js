@@ -4,9 +4,11 @@
 
   var local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   var APP_URL = local ? 'http://localhost:5173/aicadbridge-studio/' : 'https://bicim.github.io/aicadbridge-studio/';
+  var API_URL = local ? 'http://127.0.0.1:8000' : 'https://aicad.92-5-107-17.sslip.io';
   document.querySelectorAll('[data-app]').forEach(function (a) {
     a.href = APP_URL + a.getAttribute('data-app');
   });
+  document.querySelectorAll('[data-api]').forEach(function (el) { el.textContent = API_URL; });
 
   /* mobil menü */
   var nav = document.querySelector('.nav');
@@ -89,7 +91,7 @@
   /* dil */
   var EN = {
     'skip': 'Skip to content', 'nav.product': 'Product', 'nav.integrations': 'Integrations', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ',
-    'nav.download': 'Download', 'nav.login': 'Sign in', 'nav.try': 'Try free ↗',
+    'nav.download': 'Download', 'nav.start': 'Get started', 'nav.login': 'Sign in', 'nav.try': 'Try free ↗',
     'hero.eyebrow': 'TEXT-TO-CAD · PARAMETRIC · VERIFIED', 'hero.title': 'Describe.<br>Dimension.<br><em>Make.</em>',
     'hero.lead': 'Describe a part in plain words. AICADBridge builds a parametric 3D model, verifies it on its own kernel and hands you a STEP file, or sends it straight to Fusion 360, Blender or SolidWorks.',
     'hero.cta1': 'Start free ↗', 'hero.cta2': 'How it works', 'hero.fine': 'No card required · 30 free credits a day',
@@ -108,6 +110,18 @@
     'how.3d': 'An OCCT-based kernel turns the plan into a solid; a failing step is reported and leaves the model intact.',
     'how.4d': 'Bounding box, volume and body count are checked against the plan; deviations trigger a fix round.',
     'how.5d': 'Preview, sliders, STEP/STL/3MF downloads and delivery to your connected program.',
+    'start.title': 'Up and running<br><em>in five minutes</em>',
+    'start.lead': 'Create your account, describe your first part, then connect the model to the program or AI assistant you use. Every step links to the right page.',
+    'start.1': 'Sign in with Google', 'start.1b': 'Open the app ↗',
+    'start.1d': 'Click "Continue with Google" in the app. Your name, email and profile photo are saved to your account; your tasks, models and files are stored there and available on every device.',
+    'start.2': 'Describe your first model', 'start.2b': 'New task ↗',
+    'start.2d': 'Type the part and its sizes into "New task", e.g. "flange 100 mm, 10 mm thick, 6 holes". Change dimensions with sliders, download STEP/STL.',
+    'start.3': 'Connect your CAD program', 'start.3b': 'Download plugin', 'start.3c': 'Enter the code ↗',
+    'start.3d': 'Download and install the Fusion 360, Blender or SolidWorks plugin. "AICADBridge Connect" shows a code; enter it on the Integrations page. "Send" now opens the model in your program.',
+    'start.4': 'Model from your assistant (MCP)', 'start.4b': 'Create an MCP key ↗',
+    'start.4d': 'Using Claude, Cursor or VS Code? Create an MCP key on the Integrations page and add the given config to your assistant. Then just say "draw an 80 mm flange and send it to Fusion".',
+    'start.5': 'Send and edit', 'start.5b': 'My files ↗',
+    'start.5d': 'The model opens as a new component in your program. To change it, continue in the same task or tell your assistant "make the wall 3 mm"; only that dimension changes.',
     'data.title': 'Your data stays<br><em>in your control</em>', 'data.1': 'No open ports', 'data.2': 'Per-account storage', 'data.3': 'Your own key', 'data.4': 'Delete any time',
     'data.1d': 'Plugins only connect outbound. No local server, no open port, no remote code execution.',
     'data.2d': 'Files are kept per user and downloaded only through short-lived signed links.',
@@ -126,6 +140,8 @@
     'q.4': 'What does the plugin do on my computer?', 'a.4': 'It pairs with your account using a code, receives the models you send over HTTPS and opens them as a new component. It opens no ports, runs no arbitrary code, and you can disconnect it any time from Integrations.',
     'q.5': 'How are credits spent?', 'a.5': 'Each generation or automatic fix round is 1 credit. Slider rebuilds, downloads and sending to a program are free. With your own API key no credits are used.',
     'q.6': 'Which plan should I pick?', 'a.6': 'Free is enough to try it. Pro if you design a few parts a week or use more than one program; Team if you share projects.',
+    'q.7': 'Can I use it from Claude, Cursor or VS Code?', 'a.7': 'Yes, through MCP. Create a personal key on the Integrations page and add the config to your assistant. It generates the model, checks the dimensions and sends it to your connected program. Credits come from your account; revoke the key any time.',
+    'q.8': 'Where is my data stored?', 'a.8': 'Your account details (name, email, profile photo), tasks and model files are stored on the AICADBridge server, tied only to your account. Deleting a task also deletes its models and messages.',
     'cta.title': 'Describe your<br><em>next part</em>', 'cta.try': 'Try free ↗', 'cta.connect': 'Connect your CAD ↗',
     'dl.fusion': 'Download plugin', 'dl.blender': 'Download add-on', 'dl.sw': 'Download bridge',
     'foot.tag': 'Parametric CAD from plain language.', 'foot.product': 'PRODUCT', 'foot.res': 'RESOURCES', 'foot.co': 'COMPANY', 'foot.sec': 'Security', 'foot.contact': 'Support'
