@@ -26,6 +26,7 @@
     <nav class="nav-links" aria-label="Ana menü">
       <a href="#urun" data-i18n="nav.product">Ürün</a>
       <a href="#entegrasyonlar" data-i18n="nav.integrations">Entegrasyonlar</a>
+      <a href="#baslarken" data-i18n="nav.start">Başlarken</a>
       <a href="#fiyatlar" data-i18n="nav.pricing">Fiyatlar</a>
       <a href="#sss" data-i18n="nav.faq">SSS</a>
       <a href="#indir" data-i18n="nav.download">İndir</a>
@@ -105,7 +106,7 @@
 
   <!-- 01 ÜRÜN -->
   <section class="sec wrap" id="urun">
-    <p class="idx mono">[ <b>01</b> / 07 ]</p>
+    <p class="idx mono">[ <b>01</b> / 08 ]</p>
     <h2 data-i18n-html="prod.title">Gerçek mühendislik için,<br><em>gerçek ölçülerle</em></h2>
     <div class="cap">
       <div class="cap-stage fig">
@@ -154,7 +155,7 @@
 
   <!-- 02 ENTEGRASYONLAR -->
   <section class="sec wrap" id="entegrasyonlar">
-    <p class="idx mono">[ <b>02</b> / 07 ]</p>
+    <p class="idx mono">[ <b>02</b> / 08 ]</p>
     <div class="split">
       <div>
         <h2 data-i18n-html="int.title">Çalıştığın<br><em>programın içinde</em></h2>
@@ -183,7 +184,7 @@
 
   <!-- 03 NASIL -->
   <section class="sec wrap" id="nasil">
-    <p class="idx mono">[ <b>03</b> / 07 ]</p>
+    <p class="idx mono">[ <b>03</b> / 08 ]</p>
     <h2 data-i18n-html="how.title">İstemden programa,<br><em>beş adımda</em></h2>
     <ol class="pipeline">
       <li><span class="mono">01</span><b data-i18n="how.1">İstem</b><p data-i18n="how.1d">Parçayı, ölçüleri ve amacı yaz. Önceki modeli düzenlemek için devam et.</p></li>
@@ -194,11 +195,53 @@
     </ol>
   </section>
 
-  <!-- 04 VERİ -->
+  <!-- 04 BAŞLARKEN -->
+  <section class="sec wrap" id="baslarken">
+    <p class="idx mono">[ <b>04</b> / 08 ]</p>
+    <div class="split">
+      <h2 data-i18n-html="start.title">Başlamak<br><em>beş dakika</em></h2>
+      <p class="lead" data-i18n="start.lead">Hesabını aç, ilk parçanı anlat, sonra modeli kullandığın programa ya da yapay zekâ asistanına bağla. Her adımın yanında seni doğru sayfaya götüren bir bağlantı var.</p>
+    </div>
+    <ol class="guide">
+      <li>
+        <span class="mono">01</span>
+        <b data-i18n="start.1">Google ile giriş yap</b>
+        <p data-i18n="start.1d">Uygulamada "Google ile devam et"e tıkla. Adın, e-postan ve profil fotoğrafın hesabına kaydedilir; görevlerin, modellerin ve dosyaların bu hesapta saklanır ve her cihazdan erişilir.</p>
+        <a class="btn primary sm" data-app="#/" data-i18n="start.1b">Uygulamayı aç ↗</a>
+      </li>
+      <li>
+        <span class="mono">02</span>
+        <b data-i18n="start.2">İlk modelini anlat</b>
+        <p data-i18n="start.2d">"Yeni görev" kutusuna parçayı ve ölçüleri yaz, örneğin "Ø100 mm, 10 mm kalın, 6 delikli flanş". Ölçüleri kaydırıcılarla değiştir, STEP/STL olarak indir.</p>
+        <a class="btn ghost sm" data-app="#/" data-i18n="start.2b">Yeni görev ↗</a>
+      </li>
+      <li>
+        <span class="mono">03</span>
+        <b data-i18n="start.3">CAD programını bağla</b>
+        <p data-i18n="start.3d">Fusion 360, Blender veya SolidWorks eklentisini indir ve kur. Eklentideki "AICADBridge Bağlan" bir kod gösterir; kodu uygulamada Entegrasyonlar sayfasına yaz. Artık "Gönder" modeli programında açar.</p>
+        <span class="row"><a class="btn ghost sm" href="#indir" data-i18n="start.3b">Eklentiyi indir</a><a class="btn ghost sm" data-app="#/integrations" data-i18n="start.3c">Kodu gir ↗</a></span>
+      </li>
+      <li>
+        <span class="mono">04</span>
+        <b data-i18n="start.4">Asistanından modelle (MCP)</b>
+        <p data-i18n="start.4d">Claude, Cursor veya VS Code kullanıyorsan Entegrasyonlar sayfasında bir MCP anahtarı oluştur ve verilen yapılandırmayı asistanına ekle. Sonra "Ø80 flanş çiz ve Fusion'a gönder" demen yeterli.</p>
+        <pre class="snip mono" aria-label="Claude Code örneği">claude mcp add --transport http aicadbridge <span data-api>https://api.aicadbridge</span>/mcp --header "Authorization: Bearer aicad_sk_..."</pre>
+        <a class="btn ghost sm" data-app="#/integrations" data-i18n="start.4b">MCP anahtarı oluştur ↗</a>
+      </li>
+      <li>
+        <span class="mono">05</span>
+        <b data-i18n="start.5">Gönder ve düzenle</b>
+        <p data-i18n="start.5d">Model programında yeni bir bileşen olarak açılır. Değişiklik için aynı görevde devam et ya da asistanına "duvarı 3 mm yap" de; yalnızca o ölçü değişir.</p>
+        <a class="btn ghost sm" data-app="#/files" data-i18n="start.5b">Dosyalarım ↗</a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 05 VERİ -->
   <section class="sec band" id="veri">
     <div class="wrap split">
       <div>
-        <p class="idx mono">[ <b>04</b> / 07 ]</p>
+        <p class="idx mono">[ <b>05</b> / 08 ]</p>
         <h2 data-i18n-html="data.title">Verilerin<br><em>senin kontrolünde</em></h2>
       </div>
       <div class="cards4">
@@ -210,9 +253,9 @@
     </div>
   </section>
 
-  <!-- 05 FİYATLAR -->
+  <!-- 06 FİYATLAR -->
   <section class="sec wrap" id="fiyatlar">
-    <p class="idx mono">[ <b>05</b> / 07 ]</p>
+    <p class="idx mono">[ <b>06</b> / 08 ]</p>
     <div class="price-head">
       <h2 data-i18n-html="price.title">Çalışma şekline<br><em>uygun planlar</em></h2>
       <div class="toggle mono" role="group" aria-label="Faturalama dönemi">
@@ -257,7 +300,7 @@
 
   <!-- 06 SSS -->
   <section class="sec wrap" id="sss">
-    <p class="idx mono">[ <b>06</b> / 07 ]</p>
+    <p class="idx mono">[ <b>07</b> / 08 ]</p>
     <div class="split faq-split">
       <h2 class="faq-big">SSS</h2>
       <div class="faq">
@@ -267,13 +310,15 @@
         <details><summary data-i18n="q.4">Eklenti bilgisayarımda ne yapar?</summary><p data-i18n="a.4">Hesabına bir kodla eşleşir, gönderdiğin modelleri HTTPS üzerinden alır ve programda yeni bileşen olarak açar. Port açmaz, rastgele kod çalıştırmaz, istediğin an Entegrasyonlar sayfasından bağlantısını koparabilirsin.</p></details>
         <details><summary data-i18n="q.5">Kredi nasıl harcanır?</summary><p data-i18n="a.5">Her model üretimi ya da otomatik düzeltme turu 1 kredidir. Kaydırıcıyla yeniden kurma, indirme ve programa gönderme ücretsizdir. Kendi API anahtarını kullanırsan kredi düşmez.</p></details>
         <details><summary data-i18n="q.6">Hangi planı seçmeliyim?</summary><p data-i18n="a.6">Denemek için Ücretsiz yeterli. Haftada birkaç parça tasarlıyor veya birden fazla programla çalışıyorsan Pro, ekip olarak ortak projelerde çalışıyorsan Takım.</p></details>
+        <details><summary data-i18n="q.7">Claude, Cursor veya VS Code ile kullanabilir miyim?</summary><p data-i18n="a.7">Evet, MCP ile. Uygulamada Entegrasyonlar sayfasından kişisel bir anahtar oluştur ve yapılandırmayı asistanına ekle. Asistan modeli üretir, ölçüleri doğrular ve bağlı programına gönderir. Harcanan kredi senin hesabından düşer; anahtarı istediğin an iptal edebilirsin.</p></details>
+        <details><summary data-i18n="q.8">Verilerim nerede saklanıyor?</summary><p data-i18n="a.8">Hesap bilgilerin (ad, e-posta, profil fotoğrafı), görevlerin ve model dosyaların AICADBridge sunucusunda, yalnızca senin hesabına bağlı olarak saklanır. Görevi sildiğinde modelleri ve mesajları da silinir.</p></details>
       </div>
     </div>
   </section>
 
-  <!-- 07 İNDİR + CTA -->
+  <!-- 08 İNDİR + CTA -->
   <section class="sec wrap" id="indir">
-    <p class="idx mono">[ <b>07</b> / 07 ]</p>
+    <p class="idx mono">[ <b>08</b> / 08 ]</p>
     <div class="cta">
       <h2 data-i18n-html="cta.title">Bir sonraki parçanı<br><em>anlat</em></h2>
       <div class="cta-btns">
