@@ -205,6 +205,13 @@ h2 { font-size: clamp(34px, 5vw, 60px); }
 .cta h2 { margin-bottom: 0; font-size: clamp(44px, 7vw, 92px); }
 .cta-btns { display: flex; flex-direction: column; gap: 10px; }
 .dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin-top: 64px; }
+.setup-card { display: flex; flex-direction: column; gap: 8px; margin-top: 40px; padding: 28px; border: 1px solid var(--acc); text-decoration: none; transition: background .15s; }
+.setup-card:hover { background: var(--bg-3); }
+.setup-card span { font-size: 11px; color: var(--t3); letter-spacing: .12em; }
+.setup-card b { font-weight: 500; font-size: 26px; }
+.setup-card b::after { content: " ↓"; color: var(--acc); }
+.setup-card small { color: var(--t2); font-size: 14px; max-width: 64ch; }
+.dl-manual { margin: 28px 0 0; font-size: 11px; color: var(--t3); letter-spacing: .12em; }
 .dl-card { text-decoration: none; padding: 24px; display: flex; flex-direction: column; gap: 8px; transition: background .15s; }
 .dl-card + .dl-card { border-left: 1px solid var(--line); }
 .dl-card:hover { background: var(--bg-3); }
