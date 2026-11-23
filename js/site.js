@@ -31,7 +31,7 @@
     'how.2': 'Adjust the dimensions', 'how.2d': 'Every dimension is a slider. Change it and the model rebuilds in seconds, no credits.',
     'how.3': 'Send to your program', 'how.3d': 'It opens as a new part in your connected CAD program. Or download STEP, STL, 3MF or GLB.',
     'int.title': 'Integrations', 'int.lead': 'The plugin pairs with your account using a device code and only makes outbound HTTPS calls; no ports are opened on your machine.',
-    'st.ready': 'Ready', 'st.folder': 'STEP folder', 'st.soon': 'Coming soon', 'int.more': 'And more coming soon: all integrations →',
+    'st.ready': 'Ready', 'st.folder': 'STEP folder', 'int.more': 'And more coming soon: all integrations →',
     'mcp.title': 'Use it from your assistant', 'mcp.lead': 'Build models from Claude, Cursor or VS Code through MCP. The assistant checks the dimensions and sends the result to your connected program.', 'mcp.cta': 'Create an MCP key',
     'start.title': 'Get started',
     'start.1': 'Sign in with Google', 'start.1d': 'Your tasks, models and files are stored in your account, available on every device.', 'start.1b': 'Open the app',
