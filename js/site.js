@@ -116,8 +116,8 @@
     'start.1d': 'Click "Continue with Google" in the app. Your name, email and profile photo are saved to your account; your tasks, models and files are stored there and available on every device.',
     'start.2': 'Describe your first model', 'start.2b': 'New task ↗',
     'start.2d': 'Type the part and its sizes into "New task", e.g. "flange 100 mm, 10 mm thick, 6 holes". Change dimensions with sliders, download STEP/STL.',
-    'start.3': 'Connect your CAD program', 'start.3b': 'Download plugin', 'start.3c': 'Enter the code ↗',
-    'start.3d': 'Download and install the Fusion 360, Blender or SolidWorks plugin. "AICADBridge Connect" shows a code; enter it on the Integrations page. "Send" now opens the model in your program.',
+    'start.3': 'Connect your CAD program', 'start.3b': 'Download the installer ↓', 'start.3c': 'Connected apps ↗',
+    'start.3d': 'Download and run the Windows installer. It finds Fusion 360, Blender and SolidWorks, installs the plugin; press "Connect" and approve on the page that opens. After restarting Fusion the AICADBridge button appears in the toolbar.',
     'start.4': 'Model from your assistant (MCP)', 'start.4b': 'Create an MCP key ↗',
     'start.4d': 'Using Claude, Cursor or VS Code? Create an MCP key on the Integrations page and add the given config to your assistant. Then just say "draw an 80 mm flange and send it to Fusion".',
     'start.5': 'Send and edit', 'start.5b': 'My files ↗',
@@ -143,6 +143,7 @@
     'q.7': 'Can I use it from Claude, Cursor or VS Code?', 'a.7': 'Yes, through MCP. Create a personal key on the Integrations page and add the config to your assistant. It generates the model, checks the dimensions and sends it to your connected program. Credits come from your account; revoke the key any time.',
     'q.8': 'Where is my data stored?', 'a.8': 'Your account details (name, email, profile photo), tasks and model files are stored on the AICADBridge server, tied only to your account. Deleting a task also deletes its models and messages.',
     'cta.title': 'Describe your<br><em>next part</em>', 'cta.try': 'Try free ↗', 'cta.connect': 'Connect your CAD ↗',
+    'dl.setupk': 'WINDOWS · FUSION 360 · BLENDER · SOLIDWORKS', 'dl.setup': 'Download the installer', 'dl.setupd': 'One file: finds your CAD apps, installs the plugin and links it to your account. On the SmartScreen prompt choose "More info → Run anyway".', 'dl.manual': 'MANUAL INSTALL (ZIP)',
     'dl.fusion': 'Download plugin', 'dl.blender': 'Download add-on', 'dl.sw': 'Download bridge',
     'foot.tag': 'Parametric CAD from plain language.', 'foot.product': 'PRODUCT', 'foot.res': 'RESOURCES', 'foot.co': 'COMPANY', 'foot.sec': 'Security', 'foot.contact': 'Support'
   };
