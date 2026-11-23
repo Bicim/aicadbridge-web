@@ -4,17 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AICADBridge | Yapay zekâ destekli CAD tasarım asistanı</title>
-  <meta name="description" content="Parçanı doğal dille anlat; AICADBridge parametrik 3B modelini kursun, doğrulasın ve STEP olarak versin. Web'de çalışır, Fusion 360, Blender ve SolidWorks'e tek tıkla aktarır.">
+  <meta name="description" content="Parçanı doğal dille anlat; AICADBridge parametrik 3B modelini kursun, doğrulasın ve STEP olarak versin. Web'de çalışır, Fusion, SolidWorks, Blender ve diğer CAD programlarına aktarır.">
   <link rel="canonical" href="https://bicim.github.io/aicadbridge-web/">
-  <meta name="theme-color" content="#0b0b0a">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0a0a0b">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AICADBridge | Anlat. Ölçülendir. Üret.">
-  <meta property="og:description" content="Doğal dilden parametrik CAD. Web, Fusion 360, Blender ve SolidWorks.">
-  <meta property="og:image" content="assets/images/og.png">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2300b8d4' stroke-width='2.6'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%2300b8d4'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta property="og:description" content="Doğal dilden parametrik CAD. Web, Fusion, SolidWorks, Blender ve daha fazlası.">
+  <meta property="og:image" content="https://bicim.github.io/aicadbridge-web/assets/images/og.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0b'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2300b8d4' stroke-width='2.6'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%2300b8d4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -22,332 +20,228 @@
 
 <header class="nav" id="top">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="AICADBridge ana sayfa"><span class="logo"></span>AICADBridge</a>
+    <a class="brand" href="#top" aria-label="AICADBridge"><span class="mark" aria-hidden="true"></span>AICADBridge</a>
     <nav class="nav-links" aria-label="Ana menü">
-      <a href="#urun" data-i18n="nav.product">Ürün</a>
       <a href="#entegrasyonlar" data-i18n="nav.integrations">Entegrasyonlar</a>
       <a href="#baslarken" data-i18n="nav.start">Başlarken</a>
-      <a href="#fiyatlar" data-i18n="nav.pricing">Fiyatlar</a>
+      <a href="#fiyat" data-i18n="nav.pricing">Fiyat</a>
       <a href="#sss" data-i18n="nav.faq">SSS</a>
-      <a href="#indir" data-i18n="nav.download">İndir</a>
     </nav>
     <div class="nav-cta">
-      <button class="lang" id="lang" aria-label="Dil / Language">EN</button>
-      <a class="btn ghost sm" data-app="#/" data-i18n="nav.login">Giriş yap</a>
-      <a class="btn primary sm" data-app="#/" data-i18n="nav.try">Ücretsiz dene ↗</a>
+      <button class="lang" id="lang" type="button" aria-label="Dil / Language">EN</button>
+      <a class="btn primary sm" data-app="#/" data-i18n="nav.open">Uygulamayı aç</a>
     </div>
-    <button class="burger" id="burger" aria-label="Menü" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main">
-  <!-- HERO -->
   <section class="hero wrap">
-    <div class="hero-copy">
-      <p class="eyebrow mono" data-i18n="hero.eyebrow">TEXT-TO-CAD · PARAMETRİK · DOĞRULANMIŞ</p>
-      <h1 data-i18n-html="hero.title">Anlat.<br>Ölçülendir.<br><em>Üret.</em></h1>
-      <p class="lead" data-i18n="hero.lead">AICADBridge, parçanı doğal dille anlatmanla parametrik bir 3B model kurar, kendi çekirdeğinde doğrular ve STEP olarak verir. İstersen tek tıkla Fusion 360, Blender ya da SolidWorks'e gönderir.</p>
-      <div class="hero-cta">
-        <a class="btn primary" data-app="#/" data-i18n="hero.cta1">Ücretsiz başla ↗</a>
-        <a class="btn ghost" href="#nasil" data-i18n="hero.cta2">Nasıl çalışır</a>
-      </div>
-      <p class="fine mono" data-i18n="hero.fine">Kart gerekmez · günde 30 ücretsiz kredi</p>
+    <h1 data-i18n-html="hero.title">Anlat. Ölçülendir. <em>Üret.</em></h1>
+    <p class="lead" data-i18n="hero.lead">Parçanı doğal dille anlat; AICADBridge parametrik 3B modelini kursun, doğrulasın ve CAD programına göndersin.</p>
+    <div class="hero-cta">
+      <a class="btn primary lg" data-app="#/" data-i18n="hero.cta1">Ücretsiz dene</a>
+      <a class="btn lg" href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeSetup.exe" data-i18n="hero.cta2">Kurulum programını indir</a>
     </div>
-    <figure class="fig hero-fig" aria-label="Patlatılmış görünüş: plaka, mil, rulman ve dişli">
-      <ol class="fig-steps mono" id="figSteps">
-        <li class="on"><b>01</b> EXTRUDE · PLAKA</li>
-        <li><b>02</b> HOLE · 6× Ø6,6</li>
-        <li><b>03</b> REVOLVE · MİL</li>
-        <li><b>04</b> PATTERN · DİŞ 24×</li>
-        <li><b>05</b> FILLET · R2</li>
-      </ol>
-      <svg viewBox="0 0 420 460" class="explode" aria-hidden="true">
-        <g class="axis"><path d="M210 20V440" /></g>
-        <g class="part p1" style="--d:0">
-          <ellipse cx="210" cy="70" rx="92" ry="24" class="acc"/>
-          <path d="M118 70v14c0 13 41 24 92 24s92-11 92-24V70"/>
-          <ellipse cx="210" cy="70" rx="26" ry="7"/>
-          <g class="teeth"></g>
-        </g>
-        <g class="part p2" style="--d:1">
-          <ellipse cx="210" cy="150" rx="18" ry="5"/>
-          <path d="M192 150v120M228 150v120"/>
-          <ellipse cx="210" cy="270" rx="18" ry="5"/>
-        </g>
-        <g class="part p3" style="--d:2">
-          <ellipse cx="210" cy="300" rx="54" ry="14"/>
-          <path d="M156 300v16c0 8 24 14 54 14s54-6 54-14v-16"/>
-          <ellipse cx="210" cy="300" rx="30" ry="8" class="acc"/>
-        </g>
-        <g class="part p4" style="--d:3">
-          <path d="M80 380l130-36 130 36-130 36z"/>
-          <path d="M80 380v14l130 36 130-36v-14"/>
-          <ellipse cx="210" cy="380" rx="26" ry="7"/>
-          <ellipse cx="128" cy="380" rx="7" ry="2.5" class="acc"/><ellipse cx="292" cy="380" rx="7" ry="2.5" class="acc"/>
-          <ellipse cx="170" cy="364" rx="7" ry="2.5" class="acc"/><ellipse cx="250" cy="396" rx="7" ry="2.5" class="acc"/>
-          <ellipse cx="170" cy="396" rx="7" ry="2.5" class="acc"/><ellipse cx="250" cy="364" rx="7" ry="2.5" class="acc"/>
-        </g>
-        <g class="leaders mono">
-          <path d="M302 70h60"/><text x="364" y="66">Z24</text>
-          <path d="M238 210h70"/><text x="312" y="206">Ø36</text>
-          <path d="M340 380h30"/><text x="330" y="430">180×120</text>
-        </g>
-      </svg>
-      <figcaption class="mono"><span>FIG. 01 · MODEL · 1:2</span><button id="figPause" aria-label="Animasyonu duraklat">❚❚</button></figcaption>
+    <p class="fine" data-i18n="hero.fine">Kart gerekmez · günde 30 ücretsiz kredi</p>
+
+    <figure class="prompt" aria-label="Örnek istem">
+      <p class="u" data-i18n="hero.q">Ø100 mm, 10 mm kalın flanş; 6 adet M6 cıvata deliği, merkezde Ø35 delik</p>
+      <p class="a"><span class="ok-dot" aria-hidden="true"></span><span data-i18n="hero.ans">Flanş hazır: Ø100 × 10 mm, 6 × Ø6,6 delik, hacim 66,9 cm³. Doğrulama geçti.</span></p>
     </figure>
-  </section>
 
-  <section class="facts wrap" aria-label="Öne çıkanlar">
-    <div><span class="mono">01</span><p data-i18n="facts.1">Web'de ve 3 CAD programında çalışır</p></div>
-    <div><span class="mono">02</span><p data-i18n="facts.2">STEP, STL, 3MF, GLB dışa aktarma</p></div>
-    <div><span class="mono">03</span><p data-i18n="facts.3">Her ölçü bir kaydırıcı: yapay zekâya sormadan güncelle</p></div>
-    <div><span class="mono">04</span><p data-i18n="facts.4">Kendi kendini düzelten doğrulama döngüsü</p></div>
-  </section>
-
-  <!-- 01 ÜRÜN -->
-  <section class="sec wrap" id="urun">
-    <p class="idx mono">[ <b>01</b> / 08 ]</p>
-    <h2 data-i18n-html="prod.title">Gerçek mühendislik için,<br><em>gerçek ölçülerle</em></h2>
-    <div class="cap">
-      <div class="cap-stage fig">
-        <div class="cap-panel on" data-cap="0">
-          <p class="mono stage-label">PROMPT → CAD</p>
-          <div class="chat">
-            <p class="u">Ø100 mm, 10 mm kalın flanş; 6 adet M6 cıvata deliği, merkezde Ø35 delik</p>
-            <p class="a"><span class="mono">✓ Plan · 4 özellik · doğrulama geçti</span>Flanşı oluşturdum: Ø100 × 10 mm, 6 × Ø6,6 delik, hacim 66,9 cm³.</p>
-          </div>
-        </div>
-        <div class="cap-panel" data-cap="1">
-          <p class="mono stage-label">PARAMETRİK · AI ÇAĞRISIZ</p>
-          <div class="sliders">
-            <label>Dış çap <input type="range" min="40" max="200" value="100" data-out="o1"><output id="o1" class="mono">100 mm</output></label>
-            <label>Kalınlık <input type="range" min="3" max="30" value="10" data-out="o2"><output id="o2" class="mono">10 mm</output></label>
-            <label>Delik sayısı <input type="range" min="3" max="12" value="6" data-out="o3" data-unit="adet"><output id="o3" class="mono">6 adet</output></label>
-          </div>
-        </div>
-        <div class="cap-panel" data-cap="2">
-          <p class="mono stage-label">SELF-HEALING · MAX 3 TUR</p>
-          <ul class="log mono">
-            <li class="warn">✗ fillet_top: selector matched nothing</li>
-            <li class="warn">✗ expect bbox z: 12 bekleniyor, 10 bulundu</li>
-            <li>↻ rapor modele geri verildi · deneme 2</li>
-            <li class="ok">✓ 5/5 özellik · bbox ve hacim beklenen aralıkta</li>
-          </ul>
-        </div>
-        <div class="cap-panel" data-cap="3">
-          <p class="mono stage-label">EXPORT</p>
-          <div class="files mono"><span>model.step <i>AP214</i></span><span>model.stl <i>binary</i></span><span>model.3mf</span><span>model.glb <i>önizleme</i></span></div>
-        </div>
-        <div class="cap-panel" data-cap="4">
-          <p class="mono stage-label">PROGRAMA GÖNDER</p>
-          <div class="send"><span>Flanş</span><b>→</b><span class="h fusion">Fusion 360</span><span class="h blender">Blender</span><span class="h sw">SolidWorks</span></div>
-        </div>
-      </div>
-      <ol class="cap-tabs" role="tablist">
-        <li><button role="tab" aria-selected="true" data-tab="0"><span class="mono">01</span><b data-i18n="cap.0">Metinden model</b><small data-i18n="cap.0d">Parçayı, ölçülerini ve kısıtlarını anlat; parametrik bir özellik ağacı kurulsun.</small></button></li>
-        <li><button role="tab" aria-selected="false" data-tab="1"><span class="mono">02</span><b data-i18n="cap.1">Kaydırıcılarla düzenle</b><small data-i18n="cap.1d">Her ölçü bir parametre. Değiştir, model saniyede yeniden kurulsun; kredi harcanmaz.</small></button></li>
-        <li><button role="tab" aria-selected="false" data-tab="2"><span class="mono">03</span><b data-i18n="cap.2">Kendini düzelten doğrulama</b><small data-i18n="cap.2d">Başarısız özellik, sınır kutusu ya da hacim sapması modele geri verilir ve düzeltilir.</small></button></li>
-        <li><button role="tab" aria-selected="false" data-tab="3"><span class="mono">04</span><b data-i18n="cap.3">Gerçek B-rep, gerçek dosya</b><small data-i18n="cap.3d">OCCT çekirdeği: STEP, STL, 3MF ve GLB. Mesh değil, katı model.</small></button></li>
-        <li><button role="tab" aria-selected="false" data-tab="4"><span class="mono">05</span><b data-i18n="cap.4">Programına gönder</b><small data-i18n="cap.4d">Bağlı Fusion 360, Blender veya SolidWorks'te yeni bileşen olarak açılır.</small></button></li>
-      </ol>
+    <div class="works" aria-label="Çalıştığı programlar">
+      <p class="eyebrow" data-i18n="works.t">Çalıştığı programlar</p>
+      <ul class="logos">
+        <li><span class="lgo" data-i="Fu"><img src="assets/logos/fusion.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li>
+        <li><span class="lgo" data-i="SW"><img src="assets/logos/solidworks.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>SolidWorks</li>
+        <li><span class="lgo" data-i="In"><img src="assets/logos/inventor.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Inventor</li>
+        <li><span class="lgo" data-i="CA"><img src="assets/logos/catia.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>CATIA</li>
+        <li><span class="lgo" data-i="AC"><img src="assets/logos/autocad.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>AutoCAD</li>
+        <li><span class="lgo" data-i="Rh"><img src="assets/logos/rhino.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Rhino</li>
+        <li><span class="lgo" data-i="Bl"><img src="assets/logos/blender.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li>
+        <li><span class="lgo" data-i="SE"><img src="assets/logos/solidedge.svg" width="24" height="24" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Solid Edge</li>
+      </ul>
     </div>
   </section>
 
-  <!-- 02 ENTEGRASYONLAR -->
-  <section class="sec wrap" id="entegrasyonlar">
-    <p class="idx mono">[ <b>02</b> / 08 ]</p>
-    <div class="split">
-      <div>
-        <h2 data-i18n-html="int.title">Çalıştığın<br><em>programın içinde</em></h2>
-        <p class="lead" data-i18n="int.lead">Web'de tasarla, eklentiyle programına aktar. Eklenti hesabına cihaz koduyla bağlanır ve yalnızca dışarı doğru HTTPS kullanır; bilgisayarında port açılmaz.</p>
-        <ul class="hosts">
-          <li><span class="mono">01</span><div><b>Fusion 360</b><small class="mono">Windows · macOS · STEP içe aktarma, yeni bileşen</small></div></li>
-          <li><span class="mono">02</span><div><b>Blender 4.2+</b><small class="mono">GLB içe aktarma · metre ölçeği · koleksiyon</small></div></li>
-          <li><span class="mono">03</span><div><b>SolidWorks 2021+</b><small class="mono">Windows · STEP açma · COM köprüsü</small></div></li>
-          <li><span class="mono">04</span><div><b data-i18n="int.other">Diğer her şey</b><small class="mono">FreeCAD, Onshape, Inventor… · STEP/STL indir</small></div></li>
-        </ul>
-      </div>
-      <figure class="fig hub" aria-label="Bulut çekirdeği ile programlar arasındaki bağlantı şeması">
-        <svg viewBox="0 0 400 360" aria-hidden="true">
-          <g class="links"><path d="M200 180L70 70"/><path d="M200 180L330 70"/><path d="M200 180L70 290"/><path d="M200 180L330 290"/></g>
-          <g class="pulses"><circle r="3"><animateMotion dur="2.4s" repeatCount="indefinite" path="M200 180L70 70"/></circle><circle r="3"><animateMotion dur="2.4s" begin=".6s" repeatCount="indefinite" path="M200 180L330 70"/></circle><circle r="3"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M200 180L70 290"/></circle><circle r="3"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M200 180L330 290"/></circle></g>
-          <g class="node core"><rect x="160" y="150" width="80" height="60"/><text x="200" y="176">PLAN IR</text><text x="200" y="194" class="sub">OCCT</text></g>
-          <g class="node"><rect x="20" y="45" width="100" height="50"/><text x="70" y="66">FUSION 360</text><text x="70" y="82" class="sub">STEP</text></g>
-          <g class="node"><rect x="280" y="45" width="100" height="50"/><text x="330" y="66">BLENDER</text><text x="330" y="82" class="sub">GLB</text></g>
-          <g class="node"><rect x="20" y="265" width="100" height="50"/><text x="70" y="286">SOLIDWORKS</text><text x="70" y="302" class="sub">STEP</text></g>
-          <g class="node"><rect x="280" y="265" width="100" height="50"/><text x="330" y="286">WEB STUDIO</text><text x="330" y="302" class="sub">GLB · STEP</text></g>
-        </svg>
-        <figcaption class="mono"><span>FIG. 02 · BAĞLANTI</span><span>HTTPS · OUTBOUND</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 03 NASIL -->
-  <section class="sec wrap" id="nasil">
-    <p class="idx mono">[ <b>03</b> / 08 ]</p>
-    <h2 data-i18n-html="how.title">İstemden programa,<br><em>beş adımda</em></h2>
-    <ol class="pipeline">
-      <li><span class="mono">01</span><b data-i18n="how.1">İstem</b><p data-i18n="how.1d">Parçayı, ölçüleri ve amacı yaz. Önceki modeli düzenlemek için devam et.</p></li>
-      <li><span class="mono">02</span><b>Plan IR</b><p data-i18n="how.2d">Model, sürümlü ve programdan bağımsız bir özellik planı yazar: parametreler, özellikler, beklentiler.</p></li>
-      <li><span class="mono">03</span><b data-i18n="how.3">Çekirdek</b><p data-i18n="how.3d">OCCT tabanlı çekirdek planı katı modele çevirir; başarısız adım raporlanır, model bozulmaz.</p></li>
-      <li><span class="mono">04</span><b data-i18n="how.4">Doğrulama</b><p data-i18n="how.4d">Sınır kutusu, hacim ve gövde sayısı beklentiyle karşılaştırılır; sapma varsa düzeltme turu başlar.</p></li>
-      <li><span class="mono">05</span><b data-i18n="how.5">Teslim</b><p data-i18n="how.5d">Önizleme, kaydırıcılar, STEP/STL/3MF indirme ve bağlı programa gönderim.</p></li>
+  <section class="sec wrap" id="nasil" aria-labelledby="h-how">
+    <h2 id="h-how" data-i18n="how.title">Nasıl çalışır</h2>
+    <ol class="steps3">
+      <li><span class="n">1</span><h3 data-i18n="how.1">Anlat</h3><p data-i18n="how.1d">Parçayı ve ölçülerini yaz. Model parametrik bir plan kurar, kendi çekirdeğinde doğrular, gerekirse kendini düzeltir.</p></li>
+      <li><span class="n">2</span><h3 data-i18n="how.2">Ölçüleri ayarla</h3><p data-i18n="how.2d">Her ölçü bir kaydırıcı. Değiştir, model kredi harcamadan saniyeler içinde yeniden kurulur.</p></li>
+      <li><span class="n">3</span><h3 data-i18n="how.3">Programına gönder</h3><p data-i18n="how.3d">Bağlı CAD programında yeni parça olarak açılır. İstersen STEP, STL, 3MF ya da GLB indir.</p></li>
     </ol>
   </section>
 
-  <!-- 04 BAŞLARKEN -->
-  <section class="sec wrap" id="baslarken">
-    <p class="idx mono">[ <b>04</b> / 08 ]</p>
-    <div class="split">
-      <h2 data-i18n-html="start.title">Başlamak<br><em>beş dakika</em></h2>
-      <p class="lead" data-i18n="start.lead">Hesabını aç, ilk parçanı anlat, sonra modeli kullandığın programa ya da yapay zekâ asistanına bağla. Her adımın yanında seni doğru sayfaya götüren bir bağlantı var.</p>
+  <section class="sec wrap" id="entegrasyonlar" aria-labelledby="h-int">
+    <div class="sec-head">
+      <h2 id="h-int" data-i18n="int.title">Entegrasyonlar</h2>
+      <p class="lead" data-i18n="int.lead">Eklenti hesabına cihaz koduyla bağlanır ve yalnızca dışarı doğru HTTPS kullanır; bilgisayarında port açılmaz.</p>
     </div>
+
+    <div class="grp">
+      <h3><span class="badge ok" data-i18n="st.ready">Hazır</span></h3>
+      <ul class="tiles">
+        <li><span class="lgo" data-i="Fu"><img src="assets/logos/fusion.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Autodesk Fusion</li>
+        <li><span class="lgo" data-i="SW"><img src="assets/logos/solidworks.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>SolidWorks</li>
+        <li><span class="lgo" data-i="Bl"><img src="assets/logos/blender.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li>
+      </ul>
+    </div>
+    <div class="grp">
+      <h3><span class="badge beta">Beta</span></h3>
+      <ul class="tiles">
+        <li><span class="lgo" data-i="In"><img src="assets/logos/inventor.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Autodesk Inventor</li>
+        <li><span class="lgo" data-i="SE"><img src="assets/logos/solidedge.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Solid Edge</li>
+        <li><span class="lgo" data-i="CA"><img src="assets/logos/catia.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>CATIA V5</li>
+        <li><span class="lgo" data-i="AC"><img src="assets/logos/autocad.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>AutoCAD</li>
+        <li><span class="lgo" data-i="Rh"><img src="assets/logos/rhino.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Rhino 8</li>
+      </ul>
+    </div>
+    <div class="grp">
+      <h3><span class="badge folder" data-i18n="st.folder">STEP klasörü</span></h3>
+      <ul class="tiles">
+        <li><span class="lgo" data-i="NX"><img src="assets/logos/nx.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Siemens NX</li>
+        <li><span class="lgo" data-i="Cr"><img src="assets/logos/creo.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>PTC Creo</li>
+        <li><span class="lgo" data-i="An"><img src="assets/logos/ansys.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Ansys</li>
+        <li><span class="lgo" data-i="Ab"><img src="assets/logos/abaqus.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Abaqus</li>
+        <li><span class="lgo" data-i="Co"><img src="assets/logos/comsol.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>COMSOL</li>
+        <li><span class="lgo" data-i="St"><img src="assets/logos/starccm.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>STAR-CCM+</li>
+        <li><span class="lgo" data-i="Hm"><img src="assets/logos/hypermesh.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>HyperMesh</li>
+      </ul>
+    </div>
+    <div class="grp">
+      <h3><span class="badge soon" data-i18n="st.soon">Yakında</span></h3>
+      <ul class="tiles">
+        <li><span class="lgo" data-i="On"><img src="assets/logos/onshape.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li>
+      </ul>
+    </div>
+    <p class="more"><a data-app="#/integrations" data-i18n="int.more">Ve daha fazlası yakında: tüm entegrasyonlar →</a></p>
+  </section>
+
+  <section class="sec wrap" id="mcp" aria-labelledby="h-mcp">
+    <div class="mcp">
+      <div>
+        <h2 id="h-mcp" data-i18n="mcp.title">Asistanından da kullan</h2>
+        <p class="lead" data-i18n="mcp.lead">Claude, Cursor veya VS Code'dan MCP ile model kurdur. Asistan ölçüleri doğrular ve bağlı programına gönderir.</p>
+        <a class="btn" data-app="#/integrations" data-i18n="mcp.cta">MCP anahtarı oluştur</a>
+      </div>
+      <pre class="snip" aria-label="Claude Code"><code>claude mcp add --transport http aicadbridge <span data-api>https://api.aicadbridge</span>/mcp --header "Authorization: Bearer aicad_sk_..."</code></pre>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="baslarken" aria-labelledby="h-start">
+    <h2 id="h-start" data-i18n="start.title">Başlarken</h2>
     <ol class="guide">
       <li>
-        <span class="mono">01</span>
-        <b data-i18n="start.1">Google ile giriş yap</b>
-        <p data-i18n="start.1d">Uygulamada "Google ile devam et"e tıkla. Adın, e-postan ve profil fotoğrafın hesabına kaydedilir; görevlerin, modellerin ve dosyaların bu hesapta saklanır ve her cihazdan erişilir.</p>
-        <a class="btn primary sm" data-app="#/" data-i18n="start.1b">Uygulamayı aç ↗</a>
+        <span class="n">1</span>
+        <div><h3 data-i18n="start.1">Google ile giriş yap</h3><p data-i18n="start.1d">Görevlerin, modellerin ve dosyaların hesabında saklanır; her cihazdan erişirsin.</p></div>
+        <a class="btn sm" data-app="#/" data-i18n="start.1b">Uygulamayı aç</a>
       </li>
       <li>
-        <span class="mono">02</span>
-        <b data-i18n="start.2">İlk modelini anlat</b>
-        <p data-i18n="start.2d">"Yeni görev" kutusuna parçayı ve ölçüleri yaz, örneğin "Ø100 mm, 10 mm kalın, 6 delikli flanş". Ölçüleri kaydırıcılarla değiştir, STEP/STL olarak indir.</p>
-        <a class="btn ghost sm" data-app="#/" data-i18n="start.2b">Yeni görev ↗</a>
+        <span class="n">2</span>
+        <div><h3 data-i18n="start.2">İlk parçanı anlat</h3><p data-i18n="start.2d">"Yeni görev" kutusuna parçayı ve ölçüleri yaz. Kaydırıcılarla düzenle, STEP olarak indir.</p></div>
+        <a class="btn sm" data-app="#/" data-i18n="start.2b">Yeni görev</a>
       </li>
       <li>
-        <span class="mono">03</span>
-        <b data-i18n="start.3">CAD programını bağla</b>
-        <p data-i18n="start.3d">Windows kurulum programını indirip çalıştır. Fusion 360, Blender ve SolidWorks'ü kendisi bulur, eklentiyi kurar; "Bağla"ya basınca açılan sayfada onayla. Fusion'u yeniden başlatınca araç çubuğunda AICADBridge düğmesi görünür.</p>
-        <span class="row"><a class="btn primary sm" href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeSetup.exe" data-i18n="start.3b">Kurulum programını indir ↓</a><a class="btn ghost sm" data-app="#/integrations" data-i18n="start.3c">Bağlı programlar ↗</a></span>
+        <span class="n">3</span>
+        <div><h3 data-i18n="start.3">CAD programını bağla</h3><p data-i18n="start.3d">Kurulum programı programlarını bulur ve eklentiyi kurar; "Bağla"ya basınca açılan sayfada onayla. SmartScreen uyarısında "Daha fazla bilgi" ve "Yine de çalıştır".</p>
+          <details class="manual"><summary data-i18n="start.man">Elle kurulum (zip)</summary>
+            <ul>
+              <li><a href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeLink-fusion.zip">Fusion</a></li>
+              <li><a href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/aicadbridge_link-blender.zip">Blender 4.2+</a></li>
+              <li><a href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeLink-desktop.zip">SolidWorks, Inventor, Solid Edge, CATIA, AutoCAD</a></li>
+              <li><a href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeLink-rhino.zip">Rhino 8</a></li>
+            </ul>
+          </details></div>
+        <a class="btn primary sm" href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeSetup.exe" data-i18n="start.3b">Kurulum programını indir</a>
       </li>
       <li>
-        <span class="mono">04</span>
-        <b data-i18n="start.4">Asistanından modelle (MCP)</b>
-        <p data-i18n="start.4d">Claude, Cursor veya VS Code kullanıyorsan Entegrasyonlar sayfasında bir MCP anahtarı oluştur ve verilen yapılandırmayı asistanına ekle. Sonra "Ø80 flanş çiz ve Fusion'a gönder" demen yeterli.</p>
-        <pre class="snip mono" aria-label="Claude Code örneği">claude mcp add --transport http aicadbridge <span data-api>https://api.aicadbridge</span>/mcp --header "Authorization: Bearer aicad_sk_..."</pre>
-        <a class="btn ghost sm" data-app="#/integrations" data-i18n="start.4b">MCP anahtarı oluştur ↗</a>
-      </li>
-      <li>
-        <span class="mono">05</span>
-        <b data-i18n="start.5">Gönder ve düzenle</b>
-        <p data-i18n="start.5d">Model programında yeni bir bileşen olarak açılır. Değişiklik için aynı görevde devam et ya da asistanına "duvarı 3 mm yap" de; yalnızca o ölçü değişir.</p>
-        <a class="btn ghost sm" data-app="#/files" data-i18n="start.5b">Dosyalarım ↗</a>
+        <span class="n">4</span>
+        <div><h3 data-i18n="start.4">Gönder ve düzenle</h3><p data-i18n="start.4d">Model programında yeni parça olarak açılır. Değişiklik için aynı görevde devam et; yalnızca o ölçü değişir.</p></div>
+        <a class="btn sm" data-app="#/files" data-i18n="start.4b">Dosyalarım</a>
       </li>
     </ol>
   </section>
 
-  <!-- 05 VERİ -->
-  <section class="sec band" id="veri">
-    <div class="wrap split">
-      <div>
-        <p class="idx mono">[ <b>05</b> / 08 ]</p>
-        <h2 data-i18n-html="data.title">Verilerin<br><em>senin kontrolünde</em></h2>
-      </div>
-      <div class="cards4">
-        <article><span class="ic">⌁</span><b data-i18n="data.1">Port açılmaz</b><p data-i18n="data.1d">Eklentiler yalnızca dışarı doğru bağlanır. Yerel sunucu, açık port, uzaktan kod çalıştırma yok.</p></article>
-        <article><span class="ic">◫</span><b data-i18n="data.2">Hesaba özel depolama</b><p data-i18n="data.2d">Dosyalar kullanıcı bazında ayrı tutulur ve yalnızca süreli, imzalı bağlantılarla indirilir.</p></article>
-        <article><span class="ic">⚿</span><b data-i18n="data.3">Kendi anahtarın</b><p data-i18n="data.3d">Pro ve Takım planlarında kendi model sağlayıcı anahtarını kullan; anahtar yalnızca tarayıcında saklanır.</p></article>
-        <article><span class="ic">⌫</span><b data-i18n="data.4">İstediğin an sil</b><p data-i18n="data.4d">Görevi silmek modeli, mesajları ve bağlantılı işleri birlikte kaldırır. Bağlı cihazları tek tıkla kopar.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 06 FİYATLAR -->
-  <section class="sec wrap" id="fiyatlar">
-    <p class="idx mono">[ <b>06</b> / 08 ]</p>
+  <section class="sec wrap" id="fiyat" aria-labelledby="h-price">
     <div class="price-head">
-      <h2 data-i18n-html="price.title">Çalışma şekline<br><em>uygun planlar</em></h2>
-      <div class="toggle mono" role="group" aria-label="Faturalama dönemi">
-        <button class="on" data-period="m" data-i18n="price.m">Aylık</button>
-        <button data-period="y" data-i18n="price.y">Yıllık −20%</button>
+      <h2 id="h-price" data-i18n="price.title">Fiyat</h2>
+      <div class="toggle" role="group" aria-label="Faturalama dönemi">
+        <button type="button" class="on" data-period="m" data-i18n="price.m">Aylık</button>
+        <button type="button" data-period="y" data-i18n="price.y">Yıllık −20%</button>
       </div>
     </div>
     <div class="plans">
       <article class="plan">
-        <p class="mono tag" data-i18n="plan.free">ÜCRETSİZ</p>
-        <div class="amt"><span class="cur">$</span><span data-m="0" data-y="0">0</span><small data-i18n="price.per">/ay</small></div>
+        <h3 data-i18n="plan.free">Ücretsiz</h3>
+        <p class="amt"><span class="cur">$</span><span data-m="0" data-y="0">0</span><small data-i18n="price.per">/ay</small></p>
         <p class="pdesc" data-i18n="plan.freed">Denemek ve küçük işler için</p>
-        <a class="btn ghost wide" data-app="#/" data-i18n="plan.start">Başla</a>
         <ul>
           <li data-i18n="pf.1">Günde 30 kredi</li><li data-i18n="pf.2">Web Studio ve parametrik kaydırıcılar</li>
           <li data-i18n="pf.3">STEP / STL / GLB indirme</li><li data-i18n="pf.4">1 bağlı eklenti</li>
         </ul>
+        <a class="btn wide" data-app="#/" data-i18n="plan.start">Başla</a>
       </article>
       <article class="plan hot">
-        <p class="mono tag">PRO <span class="badge" data-i18n="plan.popular">En çok tercih edilen</span></p>
-        <div class="amt"><span class="cur">$</span><span data-m="20" data-y="16">20</span><small data-i18n="price.per">/ay</small></div>
+        <h3>Pro <span class="badge beta" data-i18n="plan.popular">En çok tercih edilen</span></h3>
+        <p class="amt"><span class="cur">$</span><span data-m="20" data-y="16">20</span><small data-i18n="price.per">/ay</small></p>
         <p class="pdesc" data-i18n="plan.prod">Düzenli tasarım yapan mühendisler için</p>
-        <a class="btn primary wide" data-app="#/billing" data-i18n="plan.pro">Pro'ya geç</a>
         <ul>
           <li data-i18n="pp.1">Ayda 1000 kredi</li><li data-i18n="pp.2">Sınırsız eklenti: Fusion, Blender, SolidWorks</li>
           <li data-i18n="pp.3">Kendi API anahtarın (BYOK), kredisiz</li><li data-i18n="pp.4">Öncelikli kuyruk</li>
         </ul>
+        <a class="btn primary wide" data-app="#/billing" data-i18n="plan.pro">Pro'ya geç</a>
       </article>
       <article class="plan">
-        <p class="mono tag" data-i18n="plan.team">TAKIM</p>
-        <div class="amt"><span class="cur">$</span><span data-m="40" data-y="32">40</span><small data-i18n="price.seat">/kişi/ay</small></div>
+        <h3 data-i18n="plan.team">Takım</h3>
+        <p class="amt"><span class="cur">$</span><span data-m="40" data-y="32">40</span><small data-i18n="price.seat">/kişi/ay</small></p>
         <p class="pdesc" data-i18n="plan.teamd">Ortak projelerde çalışan ekipler için</p>
-        <a class="btn ghost wide" data-app="#/billing" data-i18n="plan.contact">Takım planını seç</a>
         <ul>
           <li data-i18n="pt.1">Kişi başı ayda 3000 kredi</li><li data-i18n="pt.2">Ortak projeler ve takım üyeleri</li>
           <li data-i18n="pt.3">Denetim kaydı · SSO yakında</li><li data-i18n="pt.4">Öncelikli destek</li>
         </ul>
+        <a class="btn wide" data-app="#/billing" data-i18n="plan.contact">Takım planını seç</a>
       </article>
     </div>
-    <p class="fine mono" data-i18n="price.note">1 kredi = 1 model üretimi ya da düzeltme turu. Kaydırıcıyla yeniden kurma ücretsizdir. Fiyatlara KDV dahil değildir.</p>
+    <p class="fine" data-i18n="price.note">1 kredi = 1 model üretimi ya da düzeltme turu. Kaydırıcıyla yeniden kurma ücretsizdir. Fiyatlara KDV dahil değildir.</p>
   </section>
 
-  <!-- 06 SSS -->
-  <section class="sec wrap" id="sss">
-    <p class="idx mono">[ <b>07</b> / 08 ]</p>
-    <div class="split faq-split">
-      <h2 class="faq-big">SSS</h2>
-      <div class="faq">
-        <details open><summary data-i18n="q.1">AICADBridge mevcut modelimi düzenleyebilir mi?</summary><p data-i18n="a.1">Evet, aynı görevde devam ettiğin sürece. Model son planı temel alır, kimlikleri ve parametreleri korur ve yalnızca istediğin değişikliği yapar. Bir mesajı düzenlersen konuşma dallanır, eski sürüm kaybolmaz.</p></details>
-        <details><summary data-i18n="q.2">Hangi dosya biçimlerini alırım?</summary><p data-i18n="a.2">STEP (AP214), binary STL, 3MF ve GLB. STEP neredeyse tüm CAD programlarına açılır; eklentiler bunu otomatik yapar.</p></details>
-        <details><summary data-i18n="q.3">Fusion 360, Blender veya SolidWorks olmadan kullanabilir miyim?</summary><p data-i18n="a.3">Evet. Web Studio tek başına çalışır: modeli tarayıcıda görür, kaydırıcılarla düzenler ve indirirsin. Eklentiler isteğe bağlıdır.</p></details>
-        <details><summary data-i18n="q.4">Eklenti bilgisayarımda ne yapar?</summary><p data-i18n="a.4">Hesabına bir kodla eşleşir, gönderdiğin modelleri HTTPS üzerinden alır ve programda yeni bileşen olarak açar. Port açmaz, rastgele kod çalıştırmaz, istediğin an Entegrasyonlar sayfasından bağlantısını koparabilirsin.</p></details>
-        <details><summary data-i18n="q.5">Kredi nasıl harcanır?</summary><p data-i18n="a.5">Her model üretimi ya da otomatik düzeltme turu 1 kredidir. Kaydırıcıyla yeniden kurma, indirme ve programa gönderme ücretsizdir. Kendi API anahtarını kullanırsan kredi düşmez.</p></details>
-        <details><summary data-i18n="q.6">Hangi planı seçmeliyim?</summary><p data-i18n="a.6">Denemek için Ücretsiz yeterli. Haftada birkaç parça tasarlıyor veya birden fazla programla çalışıyorsan Pro, ekip olarak ortak projelerde çalışıyorsan Takım.</p></details>
-        <details><summary data-i18n="q.7">Claude, Cursor veya VS Code ile kullanabilir miyim?</summary><p data-i18n="a.7">Evet, MCP ile. Uygulamada Entegrasyonlar sayfasından kişisel bir anahtar oluştur ve yapılandırmayı asistanına ekle. Asistan modeli üretir, ölçüleri doğrular ve bağlı programına gönderir. Harcanan kredi senin hesabından düşer; anahtarı istediğin an iptal edebilirsin.</p></details>
-        <details><summary data-i18n="q.8">Verilerim nerede saklanıyor?</summary><p data-i18n="a.8">Hesap bilgilerin (ad, e-posta, profil fotoğrafı), görevlerin ve model dosyaların AICADBridge sunucusunda, yalnızca senin hesabına bağlı olarak saklanır. Görevi sildiğinde modelleri ve mesajları da silinir.</p></details>
-      </div>
+  <section class="sec wrap" id="sss" aria-labelledby="h-faq">
+    <h2 id="h-faq" data-i18n="faq.title">SSS</h2>
+    <div class="faq">
+      <details><summary data-i18n="q.1">Mevcut modelimi düzenleyebilir mi?</summary><p data-i18n="a.1">Evet, aynı görevde devam ettiğin sürece. Model son planı temel alır ve yalnızca istediğin değişikliği yapar; eski sürüm kaybolmaz.</p></details>
+      <details><summary data-i18n="q.2">CAD programı olmadan kullanabilir miyim?</summary><p data-i18n="a.2">Evet. Web Studio tek başına çalışır: modeli tarayıcıda görür, kaydırıcılarla düzenler ve STEP, STL, 3MF ya da GLB olarak indirirsin.</p></details>
+      <details><summary data-i18n="q.3">Eklenti bilgisayarımda ne yapar?</summary><p data-i18n="a.3">Hesabına bir kodla eşleşir, gönderdiğin modelleri HTTPS ile alır ve programda yeni parça olarak açar. Port açmaz; bağlantıyı Entegrasyonlar sayfasından istediğin an koparabilirsin.</p></details>
+      <details><summary data-i18n="q.4">Kredi nasıl harcanır?</summary><p data-i18n="a.4">Her model üretimi ya da otomatik düzeltme turu 1 kredidir. Kaydırıcıyla yeniden kurma, indirme ve programa gönderme ücretsizdir; kendi API anahtarınla kredi düşmez.</p></details>
+      <details><summary data-i18n="q.5">Claude, Cursor veya VS Code ile kullanabilir miyim?</summary><p data-i18n="a.5">Evet, MCP ile. Entegrasyonlar sayfasından kişisel bir anahtar oluştur ve yapılandırmayı asistanına ekle. Harcanan kredi senin hesabından düşer; anahtarı istediğin an iptal edebilirsin.</p></details>
+      <details><summary data-i18n="q.6">Verilerim nerede saklanıyor?</summary><p data-i18n="a.6">Hesap bilgilerin (ad, e-posta, profil fotoğrafı), görevlerin ve model dosyaların AICADBridge sunucusunda, yalnızca senin hesabına bağlı olarak saklanır. Görevi sildiğinde modelleri ve mesajları da silinir.</p></details>
     </div>
   </section>
 
-  <!-- 08 İNDİR + CTA -->
-  <section class="sec wrap" id="indir">
-    <p class="idx mono">[ <b>08</b> / 08 ]</p>
+  <section class="sec wrap" aria-labelledby="h-cta">
     <div class="cta">
-      <h2 data-i18n-html="cta.title">Bir sonraki parçanı<br><em>anlat</em></h2>
-      <div class="cta-btns">
-        <a class="btn primary wide" data-app="#/" data-i18n="cta.try">Ücretsiz dene ↗</a>
-        <a class="btn ghost wide" data-app="#/integrations" data-i18n="cta.connect">Programını bağla ↗</a>
+      <h2 id="h-cta" data-i18n-html="cta.title">Bir sonraki parçanı <em>anlat</em></h2>
+      <div class="hero-cta">
+        <a class="btn primary lg" data-app="#/" data-i18n="cta.try">Ücretsiz dene</a>
+        <a class="btn lg" data-app="#/integrations" data-i18n="cta.connect">Programını bağla</a>
       </div>
-    </div>
-    <a class="setup-card" href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeSetup.exe">
-      <span class="mono" data-i18n="dl.setupk">WINDOWS · FUSION 360 · BLENDER · SOLIDWORKS</span>
-      <b data-i18n="dl.setup">Kurulum programını indir</b>
-      <small data-i18n="dl.setupd">Tek dosya: programlarını bulur, eklentiyi kurar ve hesabına bağlar. SmartScreen uyarısında "Daha fazla bilgi → Yine de çalıştır".</small>
-    </a>
-    <p class="dl-manual mono" data-i18n="dl.manual">ELLE KURULUM (ZIP)</p>
-    <div class="dl">
-      <a class="dl-card" href="downloads/AICADBridgeLink-fusion.zip" download><span class="mono">FUSION 360</span><b data-i18n="dl.fusion">Eklentiyi indir</b><small class="mono">AICADBridgeLink-fusion.zip</small></a>
-      <a class="dl-card" href="downloads/aicadbridge_link-blender.zip" download><span class="mono">BLENDER 4.2+</span><b data-i18n="dl.blender">Eklentiyi indir</b><small class="mono">aicadbridge_link-blender.zip</small></a>
-      <a class="dl-card" href="downloads/AICADBridgeLink-solidworks.zip" download><span class="mono">SOLIDWORKS 2021+</span><b data-i18n="dl.sw">Köprüyü indir</b><small class="mono">AICADBridgeLink-solidworks.zip</small></a>
     </div>
   </section>
 </main>
 
 <footer class="foot">
-  <div class="wrap foot-in">
-    <div><a class="brand" href="#top"><span class="logo"></span>AICADBridge</a><p class="fine" data-i18n="foot.tag">Doğal dilden parametrik CAD.</p></div>
-    <nav><b class="mono" data-i18n="foot.product">ÜRÜN</b><a data-app="#/">Web Studio</a><a href="#entegrasyonlar" data-i18n="nav.integrations">Entegrasyonlar</a><a href="#fiyatlar" data-i18n="nav.pricing">Fiyatlar</a></nav>
-    <nav><b class="mono" data-i18n="foot.res">KAYNAKLAR</b><a href="#sss" data-i18n="nav.faq">SSS</a><a href="#indir" data-i18n="nav.download">İndir</a><a href="https://github.com/Bicim" rel="noopener">GitHub</a></nav>
-    <nav><b class="mono" data-i18n="foot.co">ŞİRKET</b><a href="#veri" data-i18n="foot.sec">Güvenlik</a><a href="#sss" data-i18n="foot.contact">Destek</a></nav>
+  <div class="wrap">
+    <div class="foot-row">
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span>AICADBridge</a>
+      <nav aria-label="Alt menü">
+        <a data-app="#/">Web Studio</a>
+        <a href="https://github.com/Bicim" rel="noopener">GitHub</a>
+        <a href="#sss" data-i18n="nav.faq">SSS</a>
+      </nav>
+    </div>
+    <p class="tm" data-i18n="foot.tm">Ürün adları ve logolar sahiplerinin ticari markalarıdır; yalnızca uyumluluğu belirtmek için kullanılır, ortaklık veya onay anlamına gelmez.</p>
+    <p class="tm">© 2026 Biçim</p>
   </div>
-  <div class="wrap foot-base mono"><span>© 2026 Biçim</span><span>v0.2 · AICADBridge Cloud</span></div>
 </footer>
 
 <script src="js/site.js" defer></script>
