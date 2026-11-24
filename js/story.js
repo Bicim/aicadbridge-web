@@ -29,12 +29,10 @@
 
   if (!sec) return;
   var video = sec.querySelector('.story-video');
-  var steps = [].slice.call(sec.querySelectorAll('[data-step]')).map(function (el) {
+  var steps = [].slice.call(sec.querySelectorAll('.story-step')).map(function (el) {
     return { el: el, a: +el.getAttribute('data-in'), b: +el.getAttribute('data-out') };
   });
   var dims = sec.querySelector('.story-dims');
-  var dots = [].slice.call(sec.querySelectorAll('.story-rail i'));
-  var dotAt = [0.16, 0.36, 0.70, 0.88];
   [].forEach.call(sec.querySelectorAll('.story-labels [data-x]'), function (el) {
     el.style.left = el.getAttribute('data-x') / 16 + '%';
     el.style.top = el.getAttribute('data-y') / 9 + '%';
@@ -52,12 +50,13 @@
 
   function paint(p) {
     sec.style.setProperty('--p', p.toFixed(4));
+    sec.style.setProperty('--e', clamp(p / 0.08).toFixed(3));
     steps.forEach(function (s) {
-      var o = Math.min(clamp((p - s.a) / 0.04), s.b >= 1 ? 1 : clamp((s.b - p) / 0.04));
-      s.el.style.setProperty('--o', o.toFixed(3));
-      s.el.classList.toggle('live', o > 0.5);
+      var live = p >= s.a && (p < s.b || s.b >= 1);
+      s.el.style.setProperty('--sp', clamp((p - s.a) / (s.b - s.a)).toFixed(3));
+      s.el.classList.toggle('live', live);
+      s.el.classList.toggle('done', p >= s.b && s.b < 1);
     });
-    dots.forEach(function (d, i) { d.classList.toggle('on', p >= dotAt[i]); });
     if (dims) {
       var dp = Math.min(clamp((p - 0.72) / 0.02), clamp((0.86 - p) / 0.02));
       sec.style.setProperty('--dimo', dp.toFixed(3));
@@ -116,7 +115,7 @@
     sec.classList.toggle('story--scrub', on);
     sec.classList.toggle('story--static', !on);
     if (on) { measure(); lastP = -1; loop(); afterLoad(load); }
-    else { steps.forEach(function (s) { s.el.style.removeProperty('--o'); }); }
+    else { steps.forEach(function (s) { s.el.classList.remove('live', 'done'); s.el.style.removeProperty('--sp'); }); sec.style.removeProperty('--e'); }
   }
 
   if ('IntersectionObserver' in window) {
@@ -132,7 +131,7 @@
     if (!on) return;
     steps.forEach(function (s) {
       if (s.el.contains(e.target) && !s.el.classList.contains('live')) {
-        var mid = s.a < 0 ? 0 : (s.a + Math.min(s.b, 1)) / 2;
+        var mid = (s.a + s.b) / 2;
         scrollTo({ top: top + mid * range, behavior: 'auto' });
       }
     });
