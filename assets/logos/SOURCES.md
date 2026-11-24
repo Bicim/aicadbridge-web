@@ -6,7 +6,6 @@ SVG'ler temizlendi (script/foreignObject/olay öznitelikleri/harici href/metadat
 
 | Key | Kind / shape | Source | License | Note |
 |---|---|---|---|---|
-| abaqus | vendor / icon | https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dassaultsystemes.svg | CC0-1.0 (Simple Icons); brand is a trademark of its owner | Dassault Systemes mark (no Abaqus product icon found) |
 | airtable | simple-icons / icon | https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/airtable.svg | CC0-1.0 (Simple Icons); brand is a trademark of its owner |  |
 | altium | simple-icons / icon | https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/altiumdesigner.svg | CC0-1.0 (Simple Icons); brand is a trademark of its owner |  |
 | ansys | simple-icons / wordmark | https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ansys.svg | CC0-1.0 (Simple Icons); brand is a trademark of its owner | wordmark |
@@ -31,13 +30,11 @@ SVG'ler temizlendi (script/foreignObject/olay öznitelikleri/harici href/metadat
 | gmail | full-color / icon | https://svgl.app/library/gmail.svg | Trademark of its owner; logo file from svgl.app library (nominative use) |  |
 | gsheets | full-color / icon | https://svgl.app/library/google-sheets.svg | Trademark of its owner; logo file from svgl.app library (nominative use) |  |
 | hubspot | simple-icons / icon | https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/hubspot.svg | CC0-1.0 (Simple Icons); brand is a trademark of its owner |  |
-| hypermesh | vendor / icon | https://www.siemens.com/_static/favicon.svg | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | Siemens square mark (no Altair HyperMesh (Altair is now part of Siemens) product icon found) |
 | intercom | simple-icons / icon | https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/intercom.svg | CC0-1.0 (Simple Icons); brand is a trademark of its owner |  |
 | inventor | full-color / icon | https://commons.wikimedia.org/wiki/File:Autodesk_Inventor_Logo.svg | Public domain (Wikimedia Commons; trademark of its owner) | icon cropped from icon+wordmark logo |
 | kicad | full-color / icon | https://www.kicad.org/apple-touch-icon-180x180.png | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | vendor website icon |
 | mcmaster | full-color / icon | https://www.mcmaster.com/init/gfx/favicon/192x192.png | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | vendor website icon |
 | notion | full-color / icon | https://svgl.app/library/notion.svg | Trademark of its owner; logo file from svgl.app library (nominative use) |  |
-| nx | vendor / icon | https://www.siemens.com/_static/favicon.svg | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | Siemens square mark (no NX product icon found) |
 | onshape | full-color / icon | https://www.onshape.com/cdn-images/f35a61ea6bddcaa17307207813b50aaf8d6b846d-180x180.png | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | vendor website icon |
 | outlook | full-color / icon | https://svgl.app/library/microsoft-outlook.svg | Trademark of its owner; logo file from svgl.app library (nominative use) |  |
 | quickbooks | simple-icons / icon | https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/quickbooks.svg | CC0-1.0 (Simple Icons); brand is a trademark of its owner |  |
@@ -48,7 +45,6 @@ SVG'ler temizlendi (script/foreignObject/olay öznitelikleri/harici href/metadat
 | solidedge | full-color / icon | https://commons.wikimedia.org/wiki/File:Solid_Edge_Logo.svg | Public domain (Wikimedia Commons; trademark of its owner) |  |
 | solidworks | full-color / wordmark | https://commons.wikimedia.org/wiki/File:SOLIDWORKS_Logo.svg | Public domain (Wikimedia Commons; trademark of its owner) | wordmark only (no icon found) |
 | solidworks_pdm | vendor / wordmark | https://commons.wikimedia.org/wiki/File:SOLIDWORKS_Logo.svg | Public domain (Wikimedia Commons; trademark of its owner) | SOLIDWORKS wordmark (no PDM-specific icon) |
-| starccm | vendor / icon | https://www.siemens.com/_static/favicon.svg | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | Siemens square mark (no Simcenter STAR-CCM+ product icon found) |
 | teamcenter | vendor / icon | https://www.siemens.com/_static/favicon.svg | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | Siemens square mark (no Teamcenter product icon found) |
 | teams | full-color / icon | https://svgl.app/library/microsoft-teams.svg | Trademark of its owner; logo file from svgl.app library (nominative use) |  |
 | typeform | full-color / icon | https://cdn.prod.website-files.com/66ffe2174aa8e8d5661c2708/68b6f00951eb33cd19b77288_Frame%201867174.png | Vendor website icon (favicon/apple-touch-icon); trademark of its owner, used nominatively | vendor website icon |

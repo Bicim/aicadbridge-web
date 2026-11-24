@@ -5,24 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sayfa bulunamadı | AICADBridge</title>
   <meta name="robots" content="noindex">
-  <meta name="color-scheme" content="dark light">
-  <!-- Kendine yeten 404: kök dışı yollarda da CSS bağımlılığı olmasın -->
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f7fa">
+  <!-- Kendine yeten 404: kök dışı yollarda da çalışsın diye stiller satır içi, yollar mutlak (tasarım sistemi v2 token'ları) -->
   <style>
-    :root { --bg: #0a0a0b; --text-1: #ededef; --text-2: #a1a1aa; --line-2: #2e2e33; --accent: #00b8d4; --accent-ink: #00161a; }
-    @media (prefers-color-scheme: light) { :root { --bg: #fafafa; --text-1: #111113; --text-2: #52525b; --line-2: #d4d4d9; } }
+    @font-face { font-family: "Geist"; src: url("/aicadbridge-web/assets/fonts/geist-sans.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+    :root { --bg: #f5f7fa; --surface: #ffffff; --surface-2: #f0f3f7; --line: #e1e5eb; --text-1: #0a0e14; --text-2: #465062; --text-3: #5f6979;
+      --accent: #00a6c2; --ink: #0a0e14; --ink-hover: #1f2733; --grid-line: rgb(10 14 20 / 0.05); }
     * { box-sizing: border-box; margin: 0; }
-    body { min-height: 100svh; display: grid; place-content: center; gap: 16px; text-align: center; padding: 48px 24px; background: var(--bg); color: var(--text-1); font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI Variable", "Segoe UI", Roboto, sans-serif; }
-    .mark { width: 28px; height: 28px; margin: 0 auto 8px; border-radius: 50%; border: 4px solid var(--accent); box-shadow: inset 0 0 0 4px var(--bg), inset 0 0 0 14px var(--accent); }
-    h1 { font-size: 28px; font-weight: 600; letter-spacing: -.01em; line-height: 1.15; }
-    p { color: var(--text-2); max-width: 40ch; margin-inline: auto; }
-    a { display: inline-block; justify-self: center; margin-top: 8px; padding: 8px 16px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); font-weight: 500; text-decoration: none; }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    body { min-height: 100svh; display: grid; place-content: center; text-align: center; padding: 48px 24px; background: var(--bg); color: var(--text-1);
+      font: 400 16px/26px "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI Variable", "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; position: relative; }
+    body::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 32px 32px; -webkit-mask-image: radial-gradient(circle 260px at 50% 45%, #000, transparent); mask-image: radial-gradient(circle 260px at 50% 45%, #000, transparent); }
+    main { position: relative; max-width: 400px; display: grid; justify-items: center; }
+    .tile { width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; }
+    .mark { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid var(--accent); box-shadow: inset 0 0 0 3px var(--surface), inset 0 0 0 11px var(--accent); }
+    .code { margin-top: 16px; height: 22px; padding: 0 6px; border-radius: 4px; background: var(--surface-2); border: 1px solid var(--line); color: var(--text-3); font: 500 12px/20px ui-monospace, "Cascadia Code", Consolas, monospace; }
+    h1 { margin-top: 12px; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.02em; }
+    p { margin-top: 8px; color: var(--text-2); }
+    a { margin-top: 24px; display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border-radius: 999px; background: var(--ink); color: #fff;
+      font-weight: 500; font-size: 16px; text-decoration: none; box-shadow: 0 1px 2px rgb(10 14 20 / 0.25); transition: background-color 100ms; }
+    a:hover { background: var(--ink-hover); }
+    a:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
   </style>
 </head>
 <body>
-  <span class="mark" aria-hidden="true"></span>
+<main>
+  <span class="tile" aria-hidden="true"><span class="mark"></span></span>
+  <span class="code">404</span>
   <h1>Sayfa bulunamadı</h1>
   <p>Aradığın adres burada yok. Ana sayfaya dönebilirsin.</p>
   <a href="/aicadbridge-web/">Ana sayfaya dön</a>
+</main>
 </body>
 </html>
