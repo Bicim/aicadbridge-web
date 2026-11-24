@@ -5,28 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sayfa bulunamadı | AICADBridge</title>
   <meta name="robots" content="noindex">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#f5f7fa">
-  <!-- Kendine yeten 404: kök dışı yollarda da çalışsın diye stiller satır içi, yollar mutlak (tasarım sistemi v2 token'ları) -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#07090c" media="(prefers-color-scheme: dark)">
+  <script>(function(d,t){try{t=localStorage.getItem('aicb-theme')}catch(e){}d.className+=' js';if(t==='light'||t==='dark')d.setAttribute('data-theme',t)})(document.documentElement)</script>
+  <!-- Kendine yeten 404: kök dışı yollarda da çalışsın diye stiller satır içi, yollar mutlak (site v4 token'ları, açık/koyu) -->
   <style>
     @font-face { font-family: "Geist"; src: url("/aicadbridge-web/assets/fonts/geist-sans.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-    :root { --bg: #f5f7fa; --surface: #ffffff; --surface-2: #f0f3f7; --line: #e1e5eb; --text-1: #0a0e14; --text-2: #465062; --text-3: #5f6979;
-      --accent: #00a6c2; --ink: #0a0e14; --ink-hover: #1f2733; --grid-line: rgb(10 14 20 / 0.05); }
+    :root { color-scheme: light; --bg: #f5f7fa; --surface: #ffffff; --surface-2: #f0f3f7; --line-2: #cdd3dc; --text-1: #0a0e14; --text-2: #465062; --text-3: #5f6979;
+      --accent: #00a6c2; --accent-ink: #001418; --accent-hover: #0bb6d2; --ring-c: #008aa3; --grid-minor: rgb(10 14 20 / .045); --grid-major: rgb(10 14 20 / .08); }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --bg: #07090c; --surface: #0d1015; --surface-2: #131720; --line-2: #2a313d; --text-1: #e9eef5; --text-2: #9ba5b4; --text-3: #808b9c;
+      --accent: #00b8d4; --accent-ink: #001418; --accent-hover: #1fc7e1; --ring-c: #00b8d4; --grid-minor: rgb(155 165 180 / .06); --grid-major: rgb(155 165 180 / .11); } }
+    :root[data-theme="dark"] { color-scheme: dark; --bg: #07090c; --surface: #0d1015; --surface-2: #131720; --line-2: #2a313d; --text-1: #e9eef5; --text-2: #9ba5b4; --text-3: #808b9c;
+      --accent: #00b8d4; --accent-ink: #001418; --accent-hover: #1fc7e1; --ring-c: #00b8d4; --grid-minor: rgb(155 165 180 / .06); --grid-major: rgb(155 165 180 / .11); }
     * { box-sizing: border-box; margin: 0; }
     body { min-height: 100svh; display: grid; place-content: center; text-align: center; padding: 48px 24px; background: var(--bg); color: var(--text-1);
       font: 400 16px/26px "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI Variable", "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; position: relative; }
-    body::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 32px 32px; -webkit-mask-image: radial-gradient(circle 260px at 50% 45%, #000, transparent); mask-image: radial-gradient(circle 260px at 50% 45%, #000, transparent); }
+    body::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-position: -1px -1px; background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
+      background-image: linear-gradient(var(--grid-major) 1px, transparent 1px), linear-gradient(90deg, var(--grid-major) 1px, transparent 1px), linear-gradient(var(--grid-minor) 1px, transparent 1px), linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+      -webkit-mask-image: radial-gradient(circle 320px at 50% 45%, #000, transparent); mask-image: radial-gradient(circle 320px at 50% 45%, #000, transparent); }
     main { position: relative; max-width: 400px; display: grid; justify-items: center; }
-    .tile { width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; }
+    .tile { width: 48px; height: 48px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line-2); display: grid; place-items: center; }
     .mark { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid var(--accent); box-shadow: inset 0 0 0 3px var(--surface), inset 0 0 0 11px var(--accent); }
-    .code { margin-top: 16px; height: 22px; padding: 0 6px; border-radius: 4px; background: var(--surface-2); border: 1px solid var(--line); color: var(--text-3); font: 500 12px/20px ui-monospace, "Cascadia Code", Consolas, monospace; }
+    .code { margin-top: 16px; height: 22px; padding: 0 6px; border-radius: 4px; background: var(--surface-2); border: 1px solid var(--line-2); color: var(--text-3); font: 500 12px/20px ui-monospace, "Cascadia Code", Consolas, monospace; }
     h1 { margin-top: 12px; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.02em; }
     p { margin-top: 8px; color: var(--text-2); }
-    a { margin-top: 24px; display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border-radius: 999px; background: var(--ink); color: #fff;
-      font-weight: 500; font-size: 16px; text-decoration: none; box-shadow: 0 1px 2px rgb(10 14 20 / 0.25); transition: background-color 100ms; }
-    a:hover { background: var(--ink-hover); }
-    a:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+    a { margin-top: 24px; display: inline-flex; align-items: center; height: 48px; padding: 0 20px; border-radius: 8px; background: var(--accent); color: var(--accent-ink);
+      font-weight: 500; font-size: 16px; text-decoration: none; box-shadow: inset 0 1px 0 rgb(255 255 255 / .28); transition: background-color 100ms; }
+    a:hover { background: var(--accent-hover); }
+    a:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring-c); }
   </style>
 </head>
 <body>

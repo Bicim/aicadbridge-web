@@ -1,4 +1,4 @@
-/* Kaydırmayla oynayan hikâye (#hikaye) + CTA ortam döngüsü. vault/video-plani.md §A3–A6. Bağımlılıksız.
+/* Kaydırmayla oynayan hikâye (#hikaye). vault/video-plani.md §A3–A6. Bağımlılıksız.
    Kaydırma modu yalnız geniş ekran + hareket azaltma kapalı + veri tasarrufu kapalı + hızlı ağda açılır;
    aksi halde HTML'deki statik düzen kalır ve video hiç indirilmez. */
 (function () {
@@ -14,18 +14,6 @@
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
   function idle(fn) { (window.requestIdleCallback || function (f) { setTimeout(f, 1200); })(fn); }
   function afterLoad(fn) { if (document.readyState === 'complete') idle(fn); else addEventListener('load', function () { idle(fn); }); }
-
-  /* ---- CTA arka plan döngüsü (mobil / rm / saveData: yalnız poster) ---- */
-  var cta = document.querySelector('.cta-bg');
-  if (cta && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) {
-      var vis = es[0].isIntersecting;
-      if (vis && allowed()) {
-        if (!cta.src) cta.src = cta.getAttribute('data-src');
-        var pr = cta.play(); if (pr && pr.catch) pr.catch(function () {});
-      } else if (cta.src) cta.pause();
-    }).observe(cta);
-  }
 
   if (!sec) return;
   var video = sec.querySelector('.story-video');
