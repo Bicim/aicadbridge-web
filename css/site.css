@@ -9,11 +9,11 @@
   --bg: #f5f7fa; --surface: #fff; --surface-2: #f0f3f7; --surface-3: #e6eaf0;
   --line: #e1e5eb; --line-2: #cdd3dc; --line-3: #aeb6c2;
   --text-1: #0a0e14; --text-2: #465062; --text-3: #5f6979;
-  --accent: #00a6c2; --accent-hover: #0bb6d2; --accent-press: #008aa3; --accent-ink: #001418; --accent-text: #00768c;
+  --accent: #00a6c2; --accent-hover: #0bb6d2; --accent-press: #008aa3; --accent-ink: #001418; --accent-text: #006a7d;
   --accent-soft: rgb(0 166 194 / .10); --accent-line: rgb(0 138 163 / .35); --accent-glow: rgb(0 166 194 / .22);
   --ring-c: #008aa3; --ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring-c);
-  --dim: #c2410c; --dim-soft: rgb(194 65 12 / .10);
-  --ok: #15803d; --ok-soft: rgb(21 128 61 / .10); --warn: #a16207;
+  --dim: #ad3708; --dim-soft: rgb(173 55 8 / .10);
+  --ok: #117033; --ok-soft: rgb(17 112 51 / .10); --warn: #a16207;
   --grid-minor: rgb(10 14 20 / .045); --grid-major: rgb(10 14 20 / .08);
   --draw: #2b3442; --draw-2: var(--line-3); --cover: var(--bg);
   --e1: 0 1px 2px rgb(10 14 20 / .06); --e2: 0 10px 28px -10px rgb(10 14 20 / .16);
@@ -32,7 +32,7 @@
     color-scheme: dark;
     --bg: #07090c; --surface: #0d1015; --surface-2: #131720; --surface-3: #1a1f29;
     --line: #1d232d; --line-2: #2a313d; --line-3: #3a4352;
-    --text-1: #e9eef5; --text-2: #9ba5b4; --text-3: #758091;
+    --text-1: #e9eef5; --text-2: #9ba5b4; --text-3: #808b9c;
     --accent: #00b8d4; --accent-hover: #1fc7e1; --accent-press: #0090a8; --accent-text: #2ccbe6;
     --accent-soft: rgb(0 184 212 / .12); --accent-line: rgb(0 184 212 / .38); --accent-glow: rgb(0 184 212 / .35);
     --ring-c: #00b8d4; --dim: #ff7a45; --dim-soft: rgb(255 122 69 / .14);
@@ -47,7 +47,7 @@
   color-scheme: dark; color: var(--text-1);
   --bg: #07090c; --surface: #0d1015; --surface-2: #131720; --surface-3: #1a1f29;
   --line: #1d232d; --line-2: #2a313d; --line-3: #3a4352;
-  --text-1: #e9eef5; --text-2: #9ba5b4; --text-3: #758091;
+  --text-1: #e9eef5; --text-2: #9ba5b4; --text-3: #808b9c;
   --accent: #00b8d4; --accent-hover: #1fc7e1; --accent-press: #0090a8; --accent-text: #2ccbe6;
   --accent-soft: rgb(0 184 212 / .12); --accent-line: rgb(0 184 212 / .38); --accent-glow: rgb(0 184 212 / .35);
   --ring-c: #00b8d4; --dim: #ff7a45; --dim-soft: rgb(255 122 69 / .14);

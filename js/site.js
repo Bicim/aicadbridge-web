@@ -21,7 +21,7 @@
 
   /* dil: Türkçe metin HTML'den okunur, İngilizce sözlük burada */
   var EN = {
-    'skip': 'Skip to content', 'nav.integrations': 'Integrations', 'nav.start': 'Get started', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ', 'nav.open': 'Open the app', 'nav.menu': 'Menu',
+    'skip': 'Skip to content', 'nav.integrations': 'Integrations', 'nav.start': 'Get started', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ', 'nav.open': 'Open the app', 'nav.menu': 'Menu', 'nav.main': 'Main menu', 'price.bill': 'Billing period',
     'theme.label': 'Theme', 'theme.system': 'System', 'theme.light': 'Light', 'theme.dark': 'Dark',
     'hero.title': 'Describe. Dimension. <em>Make.</em>',
     'hero.lead': 'Describe a part in plain words; AICADBridge builds the parametric 3D model, verifies it and sends it to your CAD program.',
@@ -105,7 +105,7 @@
   }
   var saved; try { saved = localStorage.getItem('aicb-theme'); } catch (e) { saved = null; }
   setTheme(saved === 'light' || saved === 'dark' ? saved : 'system');
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', metaSync);
+  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', metaSync); } catch (e) { /* eski Safari */ }
   groups.forEach(function (g) {
     g.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setTheme(b.getAttribute('data-t'), 1); });
     g.addEventListener('keydown', function (e) { arrows(e, $$('button', g), function (b) { setTheme(b.getAttribute('data-t'), 1); }); });
