@@ -20,23 +20,29 @@
 
   /* dil: Türkçe metin HTML'den okunur, İngilizce sözlük burada */
   var EN = {
-    'skip': 'Skip to content', 'nav.integrations': 'Integrations', 'nav.start': 'Get started', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ', 'nav.open': 'Open the app',
+    'skip': 'Skip to content', 'nav.integrations': 'Integrations', 'nav.start': 'Get started', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ', 'nav.open': 'Open the app', 'nav.menu': 'Menu',
     'hero.title': 'Describe. Dimension. <em>Make.</em>',
     'hero.lead': 'Describe a part in plain words; AICADBridge builds the parametric 3D model, verifies it and sends it to your CAD program.',
     'hero.cta1': 'Try free', 'hero.cta2': 'Download the installer', 'hero.fine': 'No card required · 30 free credits a day', 'hero.google': 'AICADBridge lets you sign in with Google; it only uses your name, e-mail and profile picture to create your account. <a href="gizlilik.html">Privacy policy</a>',
-    'hero.q': 'Flange, Ø100 mm, 10 mm thick; 6 M6 bolt holes, Ø35 hole in the center', 'hero.ans': 'Flange ready: Ø100 × 10 mm, 6 × Ø6.6 holes, volume 66.9 cm³. Verification passed.',
-    'works.t': 'Works with',
-    'how.title': 'How it works', 'how.h': 'Three steps, one task', 'how.dl': 'Outer diameter',
+    'hero.q': '40×30×20 mm box, 2 mm rounded edges', 'hero.p2': 'Ø100 mm flange, 10 mm thick, 6 bolt holes', 'hero.p3': 'Ø25 × 60 mm tube, 3 mm wall',
+    'hero.ex': 'Example prompt', 'hero.c1': 'Box', 'hero.c2': 'Flange', 'hero.c3': 'Tube',
+    'hero.ans': 'Flange ready: Ø100 × 10 mm, 6 × Ø6.6 holes, volume 66.9 cm³. Verification passed.',
+    'story.t': 'From one sentence to a STEP file',
     'story.1t': 'Start with a sentence', 'story.1d': 'Describe the part with its dimensions: Ø100 mm flange, 6 × M6 holes, Ø35 bore.',
     'story.2t': 'Not a mesh, a real solid', 'story.2d': 'Every model is built as B-rep, so the STEP file keeps its exact dimensions.',
     'story.3t': 'Dimensions are verified', 'story.3d': 'Volume, wall thickness and hole positions are checked; if something is off, the model repairs itself.',
     'story.4t': 'Send it to your CAD app', 'story.4d': 'Opens as a new part in Fusion, SolidWorks, Blender and more.', 'story.4l': 'See integrations',
     'story.note': 'Illustrative footage', 'copy': 'Copy', 'copied': 'Copied',
-    'how.1': 'Describe', 'how.1d': 'Write the part and its sizes. The model builds a parametric plan, verifies it on its own kernel and fixes itself if needed.',
-    'how.2': 'Adjust the dimensions', 'how.2d': 'Every dimension is a slider. Change it and the model rebuilds in seconds, no credits.',
-    'how.3': 'Send to your program', 'how.3d': 'It opens as a new part in your connected CAD program. Or download STEP, STL, 3MF or GLB.',
+    'works.t': 'Sends models to 16 programs, from Fusion to HyperMesh.',
+    'how.title': 'Real CAD, first try', 'how.dl': 'Outer diameter', 'b.s2': 'Thickness', 'b.s3': 'Hole count',
+    'b.1t': 'Change it by dimension', 'b.1d': 'The model is parametric: change diameter, thickness or hole count with a slider, without regenerating.',
+    'b.2t': 'A real CAD file', 'b.2d': 'Output is a B-rep solid: STEP keeps exact dimensions; GLB and STL too.',
+    'b.3t': 'Dimensions are checked', 'b.3a': '6 × Ø6.6 holes', 'b.3b': 'Volume 66.9 cm³', 'b.4t': 'Opens in your CAD app',
     'int.title': 'Integrations', 'int.lead': 'The plugin pairs with your account using a device code and only makes outbound HTTPS calls; no ports are opened on your machine.',
-    'st.ready': 'Ready', 'st.folder': 'STEP folder', 'int.more': 'And more coming soon: all integrations',
+    'st.ready': 'Ready', 'st.folder': 'STEP folder', 'int.more': 'And more coming soon: all integrations', 'int.tiles': 'Programs',
+    'int.g1d': 'The installer sets up the plugin; the model opens as a new part in your program.',
+    'int.g2d': "Works through the installer's plugin (Onshape: through a cloud link); in testing, feedback welcome.",
+    'int.g3d': 'The model is saved as STEP into a folder; open it with Import in your program.',
     'mcp.title': 'Use it from your assistant', 'mcp.lead': 'Build models from Claude, Cursor or VS Code through MCP. The assistant checks the dimensions and sends the result to your connected program.', 'mcp.cta': 'Create an MCP key',
     'start.title': 'Get started',
     'start.1': 'Sign in with Google', 'start.1d': 'Your tasks, models and files are stored in your account, available on every device.', 'start.1b': 'Open the app',
@@ -63,37 +69,79 @@
     'foot.tm': 'Product names and logos are trademarks of their respective owners; they are used only to indicate compatibility and do not imply affiliation or endorsement.'
   };
   var TR = { 'copy': 'Kopyala', 'copied': 'Kopyalandı' };
+  var chips = [].slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function (c) { TR[c.getAttribute('data-k')] = c.getAttribute('data-tr'); });
   document.querySelectorAll('[data-i18n]').forEach(function (el) { TR[el.getAttribute('data-i18n')] = el.textContent; });
   document.querySelectorAll('[data-i18n-html]').forEach(function (el) { TR[el.getAttribute('data-i18n-html')] = el.innerHTML; });
 
-  var langBtn = document.getElementById('lang');
+  var langBtns = document.querySelectorAll('.lang'), type;
   function setLang(lang) {
     var dict = lang === 'en' ? EN : TR;
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(function (el) { var k = el.getAttribute('data-i18n'); if (dict[k] != null) el.textContent = dict[k]; });
     document.querySelectorAll('[data-i18n-html]').forEach(function (el) { var k = el.getAttribute('data-i18n-html'); if (dict[k] != null) el.innerHTML = dict[k]; });
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { var k = el.getAttribute('data-i18n-aria'); if (dict[k] != null) el.setAttribute('aria-label', dict[k]); });
-    langBtn.textContent = lang === 'en' ? 'TR' : 'EN';
+    langBtns.forEach(function (b) { b.textContent = lang === 'en' ? 'TR' : 'EN'; });
+    if (type) type(0, 1);
     try { localStorage.setItem('aicad.lang', lang); } catch (e) { /* gizli pencere */ }
   }
   var initial = new URLSearchParams(location.search).get('lang');
   if (!initial) { try { initial = localStorage.getItem('aicad.lang'); } catch (e) { initial = null; } }
   if (initial === 'en') setLang('en');
-  langBtn.addEventListener('click', function () { setLang(document.documentElement.lang === 'en' ? 'tr' : 'en'); });
+  langBtns.forEach(function (b) { b.addEventListener('click', function () { setLang(document.documentElement.lang === 'en' ? 'tr' : 'en'); }); });
 
-  /* üst menü: 8px kaydırınca .solid; hikâye (daima koyu) üzerindeyken koyu tema */
-  var nav = document.querySelector('.nav');
-  var story = document.getElementById('hikaye');
-  var ticking = false;
-  function onScroll() {
-    ticking = false;
-    var y = window.scrollY;
-    nav.classList.toggle('solid', y > 8);
-    var overStory = story && story.getBoundingClientRect().bottom > 64;
-    if (overStory) nav.setAttribute('data-theme', 'dark'); else nav.removeAttribute('data-theme');
-  }
+  /* üst menü: 8px kaydırınca .solid; mobil menü bağlantısına basınca kapanır */
+  var nav = document.querySelector('.nav'), ticking = false;
+  function onScroll() { ticking = false; nav.classList.toggle('solid', window.scrollY > 8); }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
+  var menu = document.querySelector('.nav-menu');
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) menu.open = false; });
+
+  /* hero daktilosu: 38 ms yaz, 2200 bekle, 18 ms sil, 400 ara; gizliyken durur, hareket azaltmada yok */
+  var tw = document.getElementById('tw'), rm = matchMedia('(prefers-reduced-motion: reduce)').matches, cur = 0, tt, heroVis = true, again = true;
+  function want(i) { return (document.documentElement.lang === 'en' ? EN : TR)[chips[i].getAttribute('data-k')] || ''; }
+  type = function (i, auto) {
+    clearTimeout(tt); cur = i; again = !!auto;
+    chips.forEach(function (c, j) { c.setAttribute('aria-pressed', String(i === j)); });
+    var s = want(i), n = 0, erasing = false;
+    if (rm || !('IntersectionObserver' in window)) { tw.textContent = s; return; }
+    tw.textContent = '';
+    (function step() {
+      if (!heroVis || document.hidden) { tt = setTimeout(step, 500); return; }
+      if (!erasing) {
+        tw.textContent = s.slice(0, ++n);
+        if (n < s.length) tt = setTimeout(step, 38);
+        else if (again) tt = setTimeout(function () { erasing = true; step(); }, 2200);
+      } else {
+        tw.textContent = s.slice(0, --n);
+        tt = n > 0 ? setTimeout(step, 18) : setTimeout(function () { type((cur + 1) % chips.length, 1); }, 400);
+      }
+    })();
+  };
+  chips.forEach(function (c, i) { c.addEventListener('click', function () { type(i, 0); }); });
+  tw.textContent = want(0);
+  if (!rm && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { heroVis = es[0].isIntersecting; }).observe(document.querySelector('.hero'));
+    addEventListener('load', function () { tt = setTimeout(function () { type(0, 1); }, 600); });
+  }
+
+  /* entegrasyon karoları: görünüme girince grup grup yanar; grup düğmesi o grubu öne çıkarır */
+  var tiles = document.getElementById('int-tiles'), groups = [].slice.call(document.querySelectorAll('.int-g'));
+  function lit(g) { [].forEach.call(tiles.querySelectorAll('[data-g="' + g + '"]'), function (t) { t.classList.add('lit'); }); }
+  groups.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var on = b.getAttribute('aria-pressed') !== 'true';
+      groups.forEach(function (x) { x.setAttribute('aria-pressed', String(on && x === b)); });
+      if (on) tiles.setAttribute('data-sel', b.getAttribute('data-g')); else tiles.removeAttribute('data-sel');
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    var lio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { lit(e.target.getAttribute('data-g')); lio.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.6 });
+    [].forEach.call(tiles.children, function (t) { lio.observe(t); });
+  } else { lit(1); lit(2); lit(3); }
 
   /* bölüm belirmesi (§4): bir kez, threshold 0.15 */
   var reveals = document.querySelectorAll('.reveal');

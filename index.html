@@ -6,8 +6,8 @@
   <title>AICADBridge | Yapay zekâ destekli CAD tasarım asistanı</title>
   <meta name="description" content="Parçanı doğal dille anlat; AICADBridge parametrik 3B modelini kursun, doğrulasın ve STEP olarak versin. Web'de çalışır, Fusion, SolidWorks, Blender ve diğer CAD programlarına aktarır.">
   <link rel="canonical" href="https://bicim.github.io/aicadbridge-web/">
-  <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#07090c">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f7fa">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AICADBridge | Anlat. Ölçülendir. Üret.">
   <meta property="og:description" content="Doğal dilden parametrik CAD. Web, Fusion, SolidWorks, Blender ve daha fazlası.">
@@ -20,7 +20,7 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
 
-<header class="nav" id="top" data-theme="dark">
+<header class="nav" id="top">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="AICADBridge"><span class="mark" aria-hidden="true"></span>AICADBridge</a>
     <nav class="nav-links" aria-label="Ana menü">
@@ -30,19 +30,52 @@
       <a href="#sss" data-i18n="nav.faq">SSS</a>
     </nav>
     <div class="nav-cta">
-      <button class="btn ghost sm lang" id="lang" type="button" aria-label="Dil / Language">EN</button>
+      <button class="btn ghost sm lang" type="button" aria-label="Dil / Language">EN</button>
       <a class="btn primary sm" data-app="#/" data-i18n="nav.open">Uygulamayı aç</a>
     </div>
+    <details class="nav-menu">
+      <summary aria-label="Menü" data-i18n-aria="nav.menu"><svg class="i i-menu" aria-hidden="true"><use href="assets/icons.svg#menu"/></svg><svg class="i i-close" aria-hidden="true"><use href="assets/icons.svg#close"/></svg></summary>
+      <div class="nav-panel">
+        <a href="#entegrasyonlar" data-i18n="nav.integrations">Entegrasyonlar</a>
+        <a href="#baslarken" data-i18n="nav.start">Başlarken</a>
+        <a href="#fiyat" data-i18n="nav.pricing">Fiyat</a>
+        <a href="#sss" data-i18n="nav.faq">SSS</a>
+        <button class="btn lang" type="button" aria-label="Dil / Language">EN</button>
+      </div>
+    </details>
   </div>
 </header>
 
 <main id="main">
-  <!-- Hikâye + hero: varsayılan statik düzen; js/story.js koşullar uygunsa story--scrub ekler (vault/video-plani.md §A) -->
-  <section id="hikaye" class="story story--static" data-theme="dark" aria-labelledby="h-hero">
-    <div class="story-stage">
-      <div class="story-head">
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap">
+      <h1 id="h-hero" data-i18n-html="hero.title">Anlat. Ölçülendir. <em>Üret.</em></h1>
+      <p class="lead" data-i18n="hero.lead">Parçanı doğal dille anlat; AICADBridge parametrik 3B modelini kursun, doğrulasın ve CAD programına göndersin.</p>
+      <div class="prompt-box">
+        <p class="pb-text"><span class="sr" data-i18n="hero.q">40×30×20 mm kutu, kenarlar 2 mm yuvarlatılmış</span><span id="tw" aria-hidden="true">40×30×20 mm kutu, kenarlar 2 mm yuvarlatılmış</span><i class="caret" aria-hidden="true"></i></p>
+        <span class="pb-ex" data-i18n="hero.ex">Örnek istem</span>
+        <a class="btn primary pb-go" data-app="#/" aria-label="Ücretsiz dene" data-i18n-aria="hero.cta1"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#arrow"/></svg></a>
+      </div>
+      <div class="chips">
+        <button class="chip" type="button" aria-pressed="true" data-k="hero.q" data-tr="40×30×20 mm kutu, kenarlar 2 mm yuvarlatılmış" data-i18n="hero.c1">Kutu</button>
+        <button class="chip" type="button" aria-pressed="false" data-k="hero.p2" data-tr="Ø100 mm, 10 mm kalın, 6 cıvata delikli flanş" data-i18n="hero.c2">Flanş</button>
+        <button class="chip" type="button" aria-pressed="false" data-k="hero.p3" data-tr="Ø25 × 60 mm boru, et kalınlığı 3 mm" data-i18n="hero.c3">Boru</button>
+      </div>
+      <div class="hero-cta">
+        <a class="btn primary lg" data-app="#/" data-i18n="hero.cta1">Ücretsiz dene</a>
+        <a class="btn lg" href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeSetup.exe"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#download"/></svg><span data-i18n="hero.cta2">Kurulum programını indir</span></a>
+      </div>
+      <p class="fine" data-i18n="hero.fine">Kart gerekmez · günde 30 ücretsiz kredi</p>
+      <p class="fine" data-i18n-html="hero.google">AICADBridge, Google ile giriş yapmanı sağlar; yalnızca adını, e-postanı ve profil fotoğrafını hesabını oluşturmak için kullanır. <a href="gizlilik.html">Gizlilik politikası</a></p>
+    </div>
+  </section>
+
+  <!-- Hikâye paneli: varsayılan statik düzen; js/story.js koşullar uygunsa story--scrub ekler (vault/video-plani.md §A, site-v3-referans.md C6) -->
+  <section id="hikaye" class="story story--static" aria-labelledby="h-story">
+    <div class="story-panel" data-theme="dark">
+      <div class="story-stage">
         <div class="story-frame">
-          <img class="story-poster" src="assets/video/story-poster-1600.webp" srcset="assets/video/story-poster-800.webp 800w, assets/video/story-poster-1600.webp 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="" width="1600" height="900">
+          <img class="story-poster" src="assets/video/story-poster-1600.webp" srcset="assets/video/story-poster-800.webp 800w, assets/video/story-poster-1600.webp 1600w" sizes="(min-width: 1300px) 1140px, 100vw" loading="lazy" decoding="async" alt="" width="1600" height="900">
           <video class="story-video" muted playsinline preload="none" disablepictureinpicture tabindex="-1" aria-hidden="true"></video>
         </div>
         <div class="story-scrim"></div>
@@ -58,99 +91,95 @@
             <span class="dimtag l" data-x="1368" data-y="262">6 × Ø6.6</span>
           </div>
         </div>
-        <div class="wrap story-copy">
-          <div class="story-hero" data-step="0" data-in="-1" data-out="0.14">
-            <h1 id="h-hero" data-i18n-html="hero.title">Anlat. Ölçülendir. <em>Üret.</em></h1>
-            <p class="lead" data-i18n="hero.lead">Parçanı doğal dille anlat; AICADBridge parametrik 3B modelini kursun, doğrulasın ve CAD programına göndersin.</p>
-            <div class="hero-cta">
-              <a class="btn primary lg" data-app="#/" data-i18n="hero.cta1">Ücretsiz dene</a>
-              <a class="btn lg" href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeSetup.exe"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#download"/></svg><span data-i18n="hero.cta2">Kurulum programını indir</span></a>
-            </div>
-            <p class="fine" data-i18n="hero.fine">Kart gerekmez · günde 30 ücretsiz kredi</p>
-            <p class="fine" data-i18n-html="hero.google">AICADBridge, Google ile giriş yapmanı sağlar; yalnızca adını, e-postanı ve profil fotoğrafını hesabını oluşturmak için kullanır. <a href="gizlilik.html">Gizlilik politikası</a></p>
-          </div>
+        <div class="story-copy">
+          <h2 id="h-story" data-i18n="story.t">Bir cümleden STEP dosyasına</h2>
+          <ol class="story-steps">
+            <li class="story-step" data-in="0" data-out="0.30">
+              <img class="still" src="assets/video/still-1.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <div><h3 data-i18n="story.1t">Cümleyle başla</h3><p data-i18n="story.1d">Parçayı ölçüleriyle yaz: Ø100 mm flanş, 6 × M6 delik, merkezde Ø35.</p></div>
+            </li>
+            <li class="story-step" data-in="0.30" data-out="0.64">
+              <img class="still" src="assets/video/still-2.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <div><h3 data-i18n="story.2t">Mesh değil, gerçek katı</h3><p data-i18n="story.2d">Her model B-rep olarak kurulur; STEP dosyası ölçüsünü korur.</p></div>
+            </li>
+            <li class="story-step" data-in="0.64" data-out="0.87">
+              <img class="still" src="assets/video/still-3.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <div><h3 data-i18n="story.3t">Ölçüler doğrulanır</h3><p data-i18n="story.3d">Hacim, et kalınlığı ve delik konumları kontrol edilir; sorun varsa model kendini düzeltir.</p></div>
+            </li>
+            <li class="story-step" data-in="0.87" data-out="1">
+              <img class="still" src="assets/video/still-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <div>
+                <h3 data-i18n="story.4t">Programına gönder</h3><p data-i18n="story.4d">Fusion, SolidWorks, Blender ve diğerlerinde yeni parça olarak açılır.</p>
+                <ul class="story-apps"><li><span class="lgo s32" data-i="Fu"><img src="assets/logos/fusion.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li><li><span class="lgo s32" data-i="Bl"><img src="assets/logos/blender.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li><li><span class="lgo s32" data-i="On"><img src="assets/logos/onshape.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li></ul>
+                <a class="link" href="#entegrasyonlar"><span data-i18n="story.4l">Entegrasyonlara bak</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#arrow"/></svg></a>
+              </div>
+            </li>
+            <li class="story-note-static" data-i18n="story.note">Temsilî görüntü</li>
+          </ol>
         </div>
         <p class="story-note" data-i18n="story.note">Temsilî görüntü</p>
+        <div class="story-load" aria-hidden="true"></div>
       </div>
-
-      <ol class="wrap story-steps">
-        <li class="story-step" data-step="1" data-in="0.16" data-out="0.32">
-          <img class="still" src="assets/video/still-1.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
-          <div><h2 data-i18n="story.1t">Cümleyle başla</h2><p data-i18n="story.1d">Parçayı ölçüleriyle yaz: Ø100 mm flanş, 6 × M6 delik, merkezde Ø35.</p></div>
-        </li>
-        <li class="story-step" data-step="2" data-in="0.36" data-out="0.64">
-          <img class="still" src="assets/video/still-2.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
-          <div><h2 data-i18n="story.2t">Mesh değil, gerçek katı</h2><p data-i18n="story.2d">Her model B-rep olarak kurulur; STEP dosyası ölçüsünü korur.</p></div>
-        </li>
-        <li class="story-step" data-step="3" data-in="0.70" data-out="0.86">
-          <img class="still" src="assets/video/still-3.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
-          <div><h2 data-i18n="story.3t">Ölçüler doğrulanır</h2><p data-i18n="story.3d">Hacim, et kalınlığı ve delik konumları kontrol edilir; sorun varsa model kendini düzeltir.</p></div>
-        </li>
-        <li class="story-step" data-step="4" data-in="0.88" data-out="1">
-          <img class="still" src="assets/video/still-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
-          <div>
-            <h2 data-i18n="story.4t">Programına gönder</h2><p data-i18n="story.4d">Fusion, SolidWorks, Blender ve diğerlerinde yeni parça olarak açılır.</p>
-            <ul class="story-apps">
-              <li><span class="lgo s32" data-i="Fu"><img src="assets/logos/fusion.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li>
-              <li><span class="lgo s32" data-i="Bl"><img src="assets/logos/blender.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li>
-              <li><span class="lgo s32" data-i="On"><img src="assets/logos/onshape.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li>
-            </ul>
-            <a class="link" href="#entegrasyonlar"><span data-i18n="story.4l">Entegrasyonlara bak</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#arrow"/></svg></a>
-          </div>
-        </li>
-        <li class="story-note-static" data-i18n="story.note">Temsilî görüntü</li>
-      </ol>
-      <div class="story-rail" aria-hidden="true"><i style="top:16%"></i><i style="top:36%"></i><i style="top:70%"></i><i style="top:88%"></i></div>
-      <div class="story-load" aria-hidden="true"></div>
     </div>
   </section>
 
   <section class="works" aria-labelledby="h-works">
     <div class="wrap">
-      <p class="eyebrow" id="h-works" data-i18n="works.t">Çalıştığı programlar</p>
-      <ul class="logos">
-        <li><span class="lgo" data-i="Fu"><img src="assets/logos/fusion.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li>
-        <li><span class="lgo mono" data-i="SW" style="--c:#e0362d"></span>SolidWorks</li>
-        <li><span class="lgo" data-i="In"><img src="assets/logos/inventor.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Inventor</li>
-        <li><span class="lgo dim" data-i="CA"><img src="assets/logos/catia.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>CATIA</li>
-        <li><span class="lgo" data-i="AC"><img src="assets/logos/autocad.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>AutoCAD</li>
-        <li><span class="lgo lm" data-i="Rh"><img src="assets/logos/rhino.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Rhino</li>
-        <li><span class="lgo" data-i="Bl"><img src="assets/logos/blender.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li>
-        <li><span class="lgo" data-i="On"><img src="assets/logos/onshape.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li>
-        <li><span class="lgo" data-i="SE"><img src="assets/logos/solidedge.svg" width="24" height="24" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Solid Edge</li>
+      <ul class="works-grid">
+        <li><span class="lgo s48" data-i="Fu"><img src="assets/logos/fusion.svg" width="28" height="28" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li>
+        <li><span class="lgo s48 mono" data-i="SW" style="--c:#e0362d"></span>SolidWorks</li>
+        <li><span class="lgo s48" data-i="Bl"><img src="assets/logos/blender.svg" width="28" height="28" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li>
+        <li><span class="lgo s48" data-i="On"><img src="assets/logos/onshape.svg" width="28" height="28" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li>
+        <li><span class="lgo s48" data-i="In"><img src="assets/logos/inventor.svg" width="28" height="28" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Inventor</li>
+        <li><span class="lgo s48 dim" data-i="CA"><img src="assets/logos/catia.svg" width="28" height="28" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>CATIA</li>
+        <li><span class="lgo s48 lm" data-i="Rh"><img src="assets/logos/rhino.svg" width="28" height="28" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Rhino</li>
+        <li><span class="lgo s48" data-i="AC"><img src="assets/logos/autocad.svg" width="28" height="28" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>AutoCAD</li>
+        <li class="claim">
+          <h2 id="h-works" data-i18n="works.t">Fusion'dan HyperMesh'e 16 programa model gönderir.</h2>
+          <a class="btn" href="#entegrasyonlar"><span data-i18n="story.4l">Entegrasyonlara bak</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#arrow"/></svg></a>
+        </li>
       </ul>
+      <p class="tm" data-i18n="foot.tm">Ürün adları ve logolar sahiplerinin ticari markalarıdır; yalnızca uyumluluğu belirtmek için kullanılır, ortaklık veya onay anlamına gelmez.</p>
     </div>
   </section>
 
-  <section class="sec" id="nasil" aria-labelledby="h-how">
+  <section class="sec band u-grid" id="nasil" aria-labelledby="h-how">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow" data-i18n="how.title">Nasıl çalışır</p>
-        <h2 id="h-how" data-i18n="how.h">Üç adım, tek görev</h2>
-      </div>
-      <ol class="how">
+      <h2 id="h-how" data-i18n="how.title">Gerçek CAD, ilk denemede</h2>
+      <ol class="bento">
         <li class="card reveal">
-          <span class="n">1</span><h3 data-i18n="how.1">Anlat</h3><p data-i18n="how.1d">Parçayı ve ölçülerini yaz. Model parametrik bir plan kurar, kendi çekirdeğinde doğrular, gerekirse kendini düzeltir.</p>
-          <figure class="demo prompt" aria-label="Örnek istem">
-            <p class="u" data-i18n="hero.q">Ø100 mm, 10 mm kalın flanş; 6 adet M6 cıvata deliği, merkezde Ø35 delik</p>
-            <p class="a"><span class="ok-dot" aria-hidden="true"></span><span data-i18n="hero.ans">Flanş hazır: Ø100 × 10 mm, 6 × Ø6,6 delik, hacim 66,9 cm³. Doğrulama geçti.</span></p>
-          </figure>
-        </li>
-        <li class="card reveal d1">
-          <span class="n">2</span><h3 data-i18n="how.2">Ölçüleri ayarla</h3><p data-i18n="how.2d">Her ölçü bir kaydırıcı. Değiştir, model kredi harcamadan saniyeler içinde yeniden kurulur.</p>
-          <div class="demo slider">
-            <label for="demo-d" data-i18n="how.dl">Dış çap</label>
-            <input id="demo-d" type="range" min="60" max="140" value="100" disabled>
-            <span class="dimtag">Ø100 mm</span>
+          <h3 data-i18n="b.1t">Ölçüyle değiştir</h3><p data-i18n="b.1d">Model parametrik kurulur; çapı, kalınlığı, delik sayısını kaydırıcıyla değiştir, yeniden üretmeden.</p>
+          <div class="show" aria-hidden="true">
+            <div class="slider"><span data-i18n="how.dl">Dış çap</span><input type="range" min="60" max="140" value="100" style="--v:55%" disabled tabindex="-1"><span class="dimtag">Ø100 mm</span></div>
+            <div class="slider"><span data-i18n="b.s2">Kalınlık</span><input type="range" min="2" max="20" value="10" style="--v:45%" disabled tabindex="-1"><span class="dimtag">10 mm</span></div>
+            <div class="slider"><span data-i18n="b.s3">Delik sayısı</span><input type="range" min="2" max="12" value="6" style="--v:40%" disabled tabindex="-1"><span class="dimtag cnt">6</span></div>
           </div>
         </li>
-        <li class="card reveal d2">
-          <span class="n">3</span><h3 data-i18n="how.3">Programına gönder</h3><p data-i18n="how.3d">Bağlı CAD programında yeni parça olarak açılır. İstersen STEP, STL, 3MF ya da GLB indir.</p>
-          <ul class="demo apps-row">
-            <li><span class="lgo s32" data-i="Fu"><img src="assets/logos/fusion.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li>
-            <li><span class="lgo s32" data-i="Bl"><img src="assets/logos/blender.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li>
-            <li><span class="lgo s32" data-i="On"><img src="assets/logos/onshape.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li>
+        <li class="card reveal d1">
+          <h3 data-i18n="b.2t">Gerçek CAD dosyası</h3><p data-i18n="b.2d">Çıktı B-rep katı: STEP ölçüsünü korur, GLB ve STL de hazır.</p>
+          <ul class="show files">
+            <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#file"/></svg>flans.step<span class="badge beta">STEP</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#file"/></svg>flans.glb<span class="badge folder">GLB</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#file"/></svg>flans.stl<span class="badge folder">STL</span></li>
           </ul>
+        </li>
+        <li class="card reveal">
+          <h3 data-i18n="b.3t">Ölçüler denetlenir</h3><p data-i18n="story.3d">Hacim, et kalınlığı ve delik konumları kontrol edilir; sorun varsa model kendini düzeltir.</p>
+          <div class="show">
+            <ul class="checks">
+              <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>Ø100 × 10 mm</li>
+              <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg><span data-i18n="b.3a">6 × Ø6,6 delik</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="assets/icons.svg#check"/></svg><span data-i18n="b.3b">Hacim 66,9 cm³</span></li>
+            </ul>
+            <p data-i18n="hero.ans">Flanş hazır: Ø100 × 10 mm, 6 × Ø6,6 delik, hacim 66,9 cm³. Doğrulama geçti.</p>
+          </div>
+        </li>
+        <li class="card reveal d1">
+          <h3 data-i18n="b.4t">Programında açılır</h3><p data-i18n="story.4d">Fusion, SolidWorks, Blender ve diğerlerinde yeni parça olarak açılır.</p>
+          <div class="show flush">
+            <img src="assets/video/still-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+            <ul class="apps-row"><li><span class="lgo s32" data-i="Fu"><img src="assets/logos/fusion.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li><li><span class="lgo s32" data-i="Bl"><img src="assets/logos/blender.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li><li><span class="lgo s32" data-i="On"><img src="assets/logos/onshape.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li></ul>
+          </div>
         </li>
       </ol>
     </div>
@@ -158,44 +187,36 @@
 
   <section class="sec" id="entegrasyonlar" aria-labelledby="h-int">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <h2 id="h-int" data-i18n="int.title">Entegrasyonlar</h2>
-        <p class="lead" data-i18n="int.lead">Eklenti hesabına cihaz koduyla bağlanır ve yalnızca dışarı doğru HTTPS kullanır; bilgisayarında port açılmaz.</p>
+      <div class="int-panel" data-theme="dark">
+        <div>
+          <h2 id="h-int" data-i18n="int.title">Entegrasyonlar</h2>
+          <p class="lead" data-i18n="int.lead">Eklenti hesabına cihaz koduyla bağlanır ve yalnızca dışarı doğru HTTPS kullanır; bilgisayarında port açılmaz.</p>
+          <ol class="int-groups">
+            <li><button class="int-g" type="button" data-g="1" aria-pressed="false" aria-controls="int-tiles"><span class="t"><span class="badge ok" data-i18n="st.ready">Hazır</span><span class="n">3</span></span><p data-i18n="int.g1d">Kurulum programı eklentiyi kurar; model programında yeni parça olarak açılır.</p><span class="m">Fusion, SolidWorks, Blender</span></button></li>
+            <li><button class="int-g" type="button" data-g="2" aria-pressed="false" aria-controls="int-tiles"><span class="t"><span class="badge beta">Beta</span><span class="n">6</span></span><p data-i18n="int.g2d">Kurulum programının eklentisiyle (Onshape: bulut bağlantısıyla) çalışır; test aşamasında, geri bildirimini bekliyoruz.</p><span class="m">Inventor, Solid Edge, CATIA V5, AutoCAD, Rhino 8, Onshape</span></button></li>
+            <li><button class="int-g" type="button" data-g="3" aria-pressed="false" aria-controls="int-tiles"><span class="t"><span class="badge folder" data-i18n="st.folder">STEP klasörü</span><span class="n">7</span></span><p data-i18n="int.g3d">Model STEP olarak bir klasöre kaydedilir; programında İçe aktar ile açarsın.</p><span class="m">Siemens NX, PTC Creo, Ansys, Abaqus, COMSOL, STAR-CCM+, HyperMesh</span></button></li>
+          </ol>
+          <p class="more"><a class="link" data-app="#/integrations"><span data-i18n="int.more">Ve daha fazlası yakında: tüm entegrasyonlar</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#arrow"/></svg></a></p>
+        </div>
+        <ul class="int-tiles" id="int-tiles" aria-label="Programlar" data-i18n-aria="int.tiles">
+          <li class="lgo" data-i="Fu" data-g="1" style="--i:0" title="Autodesk Fusion"><img src="assets/logos/fusion.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Autodesk Fusion</span></li>
+          <li class="lgo mono" data-i="SW" data-g="1" style="--i:1;--c:#e0362d" title="SolidWorks"><span class="sr">SolidWorks</span></li>
+          <li class="lgo" data-i="Bl" data-g="1" style="--i:2" title="Blender"><img src="assets/logos/blender.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Blender</span></li>
+          <li class="lgo" data-i="In" data-g="2" style="--i:3" title="Autodesk Inventor"><img src="assets/logos/inventor.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Autodesk Inventor</span></li>
+          <li class="lgo" data-i="SE" data-g="2" style="--i:4" title="Solid Edge"><img src="assets/logos/solidedge.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Solid Edge</span></li>
+          <li class="lgo dim" data-i="CA" data-g="2" style="--i:5" title="CATIA V5"><img src="assets/logos/catia.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">CATIA V5</span></li>
+          <li class="lgo" data-i="AC" data-g="2" style="--i:6" title="AutoCAD"><img src="assets/logos/autocad.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">AutoCAD</span></li>
+          <li class="lgo lm" data-i="Rh" data-g="2" style="--i:7" title="Rhino 8"><img src="assets/logos/rhino.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Rhino 8</span></li>
+          <li class="lgo" data-i="On" data-g="2" style="--i:8" title="Onshape"><img src="assets/logos/onshape.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Onshape</span></li>
+          <li class="lgo" data-i="NX" data-g="3" style="--i:9" title="Siemens NX"><img src="assets/logos/nx.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Siemens NX</span></li>
+          <li class="lgo" data-i="Cr" data-g="3" style="--i:10" title="PTC Creo"><img src="assets/logos/creo.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">PTC Creo</span></li>
+          <li class="lgo mono" data-i="An" data-g="3" style="--i:11;--c:#ffb71b" title="Ansys"><span class="sr">Ansys</span></li>
+          <li class="lgo dim" data-i="Ab" data-g="3" style="--i:12" title="Abaqus"><img src="assets/logos/abaqus.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">Abaqus</span></li>
+          <li class="lgo" data-i="Co" data-g="3" style="--i:13" title="COMSOL"><img src="assets/logos/comsol.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">COMSOL</span></li>
+          <li class="lgo" data-i="St" data-g="3" style="--i:14" title="STAR-CCM+"><img src="assets/logos/starccm.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">STAR-CCM+</span></li>
+          <li class="lgo" data-i="Hm" data-g="3" style="--i:15" title="HyperMesh"><img src="assets/logos/hypermesh.svg" width="40" height="40" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"><span class="sr">HyperMesh</span></li>
+        </ul>
       </div>
-      <div class="ints">
-        <div class="card reveal">
-          <div class="ints-h"><span class="badge ok" data-i18n="st.ready">Hazır</span><span class="cnt">3</span></div>
-          <ul class="rows">
-            <li><span class="lgo s32" data-i="Fu"><img src="assets/logos/fusion.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Autodesk Fusion</li>
-            <li><span class="lgo s32 mono" data-i="SW" style="--c:#e0362d"></span>SolidWorks</li>
-            <li><span class="lgo s32" data-i="Bl"><img src="assets/logos/blender.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li>
-          </ul>
-        </div>
-        <div class="card reveal d1">
-          <div class="ints-h"><span class="badge beta">Beta</span><span class="cnt">6</span></div>
-          <ul class="rows">
-            <li><span class="lgo s32" data-i="In"><img src="assets/logos/inventor.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Autodesk Inventor</li>
-            <li><span class="lgo s32" data-i="SE"><img src="assets/logos/solidedge.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Solid Edge</li>
-            <li><span class="lgo s32 dim" data-i="CA"><img src="assets/logos/catia.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>CATIA V5</li>
-            <li><span class="lgo s32" data-i="AC"><img src="assets/logos/autocad.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>AutoCAD</li>
-            <li><span class="lgo s32 lm" data-i="Rh"><img src="assets/logos/rhino.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Rhino 8</li>
-            <li><span class="lgo s32" data-i="On"><img src="assets/logos/onshape.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li>
-          </ul>
-        </div>
-        <div class="card reveal d2">
-          <div class="ints-h"><span class="badge folder" data-i18n="st.folder">STEP klasörü</span><span class="cnt">7</span></div>
-          <ul class="rows">
-            <li><span class="lgo s32" data-i="NX"><img src="assets/logos/nx.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Siemens NX</li>
-            <li><span class="lgo s32" data-i="Cr"><img src="assets/logos/creo.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>PTC Creo</li>
-            <li><span class="lgo s32 mono" data-i="An" style="--c:#ffb71b"></span>Ansys</li>
-            <li><span class="lgo s32 dim" data-i="Ab"><img src="assets/logos/abaqus.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Abaqus</li>
-            <li><span class="lgo s32" data-i="Co"><img src="assets/logos/comsol.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>COMSOL</li>
-            <li><span class="lgo s32" data-i="St"><img src="assets/logos/starccm.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>STAR-CCM+</li>
-            <li><span class="lgo s32" data-i="Hm"><img src="assets/logos/hypermesh.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>HyperMesh</li>
-          </ul>
-        </div>
-      </div>
-      <p class="more"><a class="link" data-app="#/integrations"><span data-i18n="int.more">Ve daha fazlası yakında: tüm entegrasyonlar</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#arrow"/></svg></a></p>
     </div>
   </section>
 
@@ -203,7 +224,6 @@
     <div class="wrap mcp">
       <div class="reveal">
         <div class="sec-head">
-          <p class="eyebrow">MCP</p>
           <h2 id="h-mcp" data-i18n="mcp.title">Asistanından da kullan</h2>
           <p class="lead" data-i18n="mcp.lead">Claude, Cursor veya VS Code'dan MCP ile model kurdur. Asistan ölçüleri doğrular ve bağlı programına gönderir.</p>
         </div>
@@ -276,7 +296,7 @@
           </ul>
           <a class="btn lg wide" data-app="#/" data-i18n="plan.start">Başla</a>
         </article>
-        <article class="plan card hot reveal d1">
+        <article class="plan card hot reveal d1" data-theme="dark">
           <h3>Pro <span class="badge beta" data-i18n="plan.popular">En çok tercih edilen</span></h3>
           <p class="amt"><span class="cur">$</span><span class="num" data-m="20" data-y="16">20</span><small data-i18n="price.per">/ay</small></p>
           <p class="pdesc" data-i18n="plan.prod">Düzenli tasarım yapan mühendisler için</p>
@@ -327,10 +347,12 @@
       <div class="cta u-grid reveal" data-theme="dark">
         <video class="cta-bg" muted loop playsinline preload="none" disablepictureinpicture tabindex="-1" aria-hidden="true" poster="assets/video/cta-poster.webp" data-src="assets/video/cta-loop-960.mp4"></video>
         <h2 id="h-cta" data-i18n-html="cta.title">Bir sonraki parçanı <em>anlat</em></h2>
+        <p class="lead" data-i18n="hero.fine">Kart gerekmez · günde 30 ücretsiz kredi</p>
         <div class="hero-cta">
           <a class="btn primary lg" data-app="#/" data-i18n="cta.try">Ücretsiz dene</a>
           <a class="btn lg" data-app="#/integrations" data-i18n="cta.connect">Programını bağla</a>
         </div>
+        <a class="link" href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeSetup.exe"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#download"/></svg><span data-i18n="hero.cta2">Kurulum programını indir</span></a>
       </div>
     </div>
   </section>
@@ -369,7 +391,8 @@
       </nav>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 Biçim · <span data-i18n="foot.tm">Ürün adları ve logolar sahiplerinin ticari markalarıdır; yalnızca uyumluluğu belirtmek için kullanılır, ortaklık veya onay anlamına gelmez.</span></p>
+      <div class="foot-row"><p>© 2026 Biçim</p><button class="btn ghost sm lang" type="button" aria-label="Dil / Language">EN</button></div>
+      <p data-i18n="foot.tm">Ürün adları ve logolar sahiplerinin ticari markalarıdır; yalnızca uyumluluğu belirtmek için kullanılır, ortaklık veya onay anlamına gelmez.</p>
       <p data-i18n-html="hero.google">AICADBridge, Google ile giriş yapmanı sağlar; yalnızca adını, e-postanı ve profil fotoğrafını hesabını oluşturmak için kullanır. <a href="gizlilik.html">Gizlilik politikası</a></p>
     </div>
   </div>
