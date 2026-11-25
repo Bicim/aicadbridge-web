@@ -277,7 +277,8 @@
         </li>
         <li class="card" data-m="r" style="--i:2" id="elle">
           <span class="gn" aria-hidden="true">03</span>
-          <div class="gbody"><h3 data-i18n="start.3">CAD programını bağla</h3><p data-i18n="start.3d">Kurulum programı programlarını bulur ve eklentiyi kurar; "Bağla"ya basınca açılan sayfada onayla. SmartScreen uyarısında "Daha fazla bilgi" ve "Yine de çalıştır".</p>
+          <div class="gbody"><h3 data-i18n="start.3">CAD programını bağla</h3><p data-i18n="start.3d">Kurulum programı programlarını bulur ve eklentiyi kurar; "Bağla"ya basınca açılan sayfada onayla. Windows uyarı verirse aşağıdaki nota bak.</p>
+            <details class="manual"><summary data-i18n="start.warn">Windows ya da tarayıcı engelledi mi?</summary><p data-i18n-html="start.warnd">Kurulum programı henüz dijital imzalı değil; bu yüzden yeni bir dosya olarak görünür ve uyarı çıkabilir. Windows: "Windows bilgisayarınızı korudu" → <b>Daha fazla bilgi</b> → <b>Yine de çalıştır</b>. Chrome/Edge: indirmeler listesinde dosyanın yanındaki <b>Sakla</b>. Doğrulamak için <a href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/SHA256SUMS.txt">SHA-256 sağlama toplamı</a> ile karşılaştır.</p></details>
             <details class="manual"><summary data-i18n="start.man">Elle kurulum (zip)</summary>
               <ul>
                 <li><a href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/AICADBridgeLink-fusion.zip">Fusion</a></li>
@@ -361,6 +362,7 @@
         <details><summary><span data-i18n="q.4">Kredi nasıl harcanır?</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#plus"/></svg></summary><p data-i18n="a.4">Her model üretimi ya da otomatik düzeltme turu 1 kredidir. Kaydırıcıyla yeniden kurma, indirme ve programa gönderme ücretsizdir; kendi API anahtarınla kredi düşmez.</p></details>
         <details><summary><span data-i18n="q.5">Claude, Cursor veya VS Code ile kullanabilir miyim?</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#plus"/></svg></summary><p data-i18n="a.5">Evet, MCP ile. Entegrasyonlar sayfasından kişisel bir anahtar oluştur ve yapılandırmayı asistanına ekle. Harcanan kredi senin hesabından düşer; anahtarı istediğin an iptal edebilirsin.</p></details>
         <details><summary><span data-i18n="q.6">Verilerim nerede saklanıyor?</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#plus"/></svg></summary><p data-i18n="a.6">Hesap bilgilerin (ad, e-posta, profil fotoğrafı), görevlerin ve model dosyaların AICADBridge sunucusunda, yalnızca senin hesabına bağlı olarak saklanır. Görevi sildiğinde modelleri ve mesajları da silinir.</p></details>
+        <details><summary><span data-i18n="q.7">Kurulum programını indirirken Windows ya da tarayıcı uyarı veriyor, güvenli mi?</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#plus"/></svg></summary><p data-i18n-html="a.7">Dosya henüz dijital imzalı değil; yeni ve az indirilen imzasız dosyalar için Windows SmartScreen ve Chrome/Edge uyarı gösterir. Windows'ta <b>Daha fazla bilgi → Yine de çalıştır</b>, Chrome'da <b>Sakla</b> seç. Kod herkese açık (<a href="https://github.com/Bicim/aicadbridge-connectors" rel="noopener">GitHub</a>); dosyanın aynı olduğunu <a href="https://github.com/Bicim/aicadbridge-connectors/releases/latest/download/SHA256SUMS.txt">SHA-256 sağlama toplamı</a> ile doğrulayabilirsin. Kurulum yönetici izni istemez.</p></details>
       </div>
     </div>
   </section>
