@@ -546,6 +546,15 @@ h2[data-m="h"]::after { content: ""; display: block; width: 64px; height: 6px; m
 .m-ready [data-m="tb"]:not(.on) > :is(.et, .eb) { transform: scaleX(0); }
 .m-ready [data-m="tb"]:not(.on) > :is(.er, .el) { transform: scaleY(0); }
 
+/* tanıtım videosu: iki öğe, medya sorgusuyla biri görünür (gizli olan preload=none, indirilmez) */
+.vid { padding-top: 0; }
+.vid-sheet { margin: 0; padding: 10px; max-width: 1040px; margin-inline: auto; }
+.vid-sheet video { display: block; width: 100%; height: auto; background: #000; border-radius: 2px; }
+.vid-sheet .vid-h { aspect-ratio: 16 / 9; }
+.vid-sheet .vid-v { display: none; aspect-ratio: 9 / 16; max-height: 78svh; width: auto; margin-inline: auto; }
+.vid-sheet video:focus-visible { outline: 2px solid var(--ring-c); outline-offset: 2px; }
+@media (max-width: 700px) { .vid-sheet .vid-h { display: none; } .vid-sheet .vid-v { display: block; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; scroll-behavior: auto !important; }
 }
