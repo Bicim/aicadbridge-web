@@ -31,6 +31,7 @@
     'hero.alt1': 'Dimensioned front and side view of the box', 'hero.alt2': 'Dimensioned front and side view of the flange', 'hero.alt3': 'Dimensioned side and end view of the tube',
     'hero.works': 'Fusion, SolidWorks, Blender and 13 more programs', 'tb.part': 'Part', 'tb.unit': 'Unit', 'tb.out': 'Output', 'tb.progs': 'Programs', 'tb.credit': 'Free', 'tb.creditv': '30 / day',
     'hero.ans': 'Flange ready: Ø100 × 10 mm, 6 × Ø6.6 holes, volume 66.9 cm³. Verification passed.',
+    'vid.title': 'AICADBridge in 21 seconds', 'vid.lead': 'From one sentence to an exact, dimensioned CAD model: a short launch video.', 'vid.label': 'AICADBridge launch video (21 seconds)',
     'story.t': 'From one sentence to a STEP file',
     'story.1t': 'Start with a sentence', 'story.1d': 'Describe the part with its dimensions: Ø100 mm flange, 6 × M6 holes, Ø35 bore.',
     'story.2t': 'Not a mesh, a real solid', 'story.2d': 'Every model is built as B-rep, so the STEP file keeps its exact dimensions.',
