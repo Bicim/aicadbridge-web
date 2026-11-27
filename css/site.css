@@ -551,7 +551,7 @@ h2[data-m="h"]::after { content: ""; display: block; width: 64px; height: 6px; m
 .vid-sheet { margin: 0; padding: 10px; max-width: 1040px; margin-inline: auto; }
 .vid-sheet video { display: none; width: 100%; height: auto; background: var(--surface); border-radius: 2px; }
 .vid-sheet .vid-h { aspect-ratio: 16 / 9; }
-.vid-sheet .vid-v { aspect-ratio: 9 / 16; max-height: 78svh; width: auto; margin-inline: auto; }
+.vid-sheet .vid-v { aspect-ratio: 4 / 5; max-height: 78svh; width: auto; margin-inline: auto; }
 /* tema + yön: yalnız bir video görünür (gizliler preload=none, indirilmez) */
 .vid-sheet .vid-h.vt-l { display: block; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vid-sheet .vt-l { display: none !important; } :root:not([data-theme="light"]) .vid-sheet .vid-h.vt-d { display: block; } }
