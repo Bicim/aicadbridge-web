@@ -99,15 +99,16 @@
   /* tema: Sistem / Açık / Koyu; anahtar aicb-theme (ön boyama betiği <head>'de) */
   var groups = $$('.theme'), metas = $$('meta[name=theme-color]'), orig = metas.map(function (m) { return m.content; });
   function metaSync() { var v = de.getAttribute('data-theme'); metas.forEach(function (m, i) { m.content = v ? (v === 'dark' ? '#07090c' : '#f5f7fa') : orig[i]; }); }
+  function vidStop() { $$('.vid-sheet video').forEach(function (m) { if (!m.paused) m.pause(); }); } /* tema değişince oynayan video durur; görünen varyant posterle gelir */
   function setTheme(v, save) {
     if (v === 'light' || v === 'dark') de.setAttribute('data-theme', v); else de.removeAttribute('data-theme');
     groups.forEach(function (g) { $$('button', g).forEach(function (b) { var on = b.getAttribute('data-t') === v; b.setAttribute('aria-checked', String(on)); b.tabIndex = on ? 0 : -1; }); });
-    metaSync();
+    metaSync(); vidStop();
     if (save) { try { localStorage.setItem('aicb-theme', v); } catch (e) { /* gizli pencere */ } }
   }
   var saved; try { saved = localStorage.getItem('aicb-theme'); } catch (e) { saved = null; }
   setTheme(saved === 'light' || saved === 'dark' ? saved : 'system');
-  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', metaSync); } catch (e) { /* eski Safari */ }
+  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { metaSync(); vidStop(); }); } catch (e) { /* eski Safari */ }
   groups.forEach(function (g) {
     g.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setTheme(b.getAttribute('data-t'), 1); });
     g.addEventListener('keydown', function (e) { arrows(e, $$('button', g), function (b) { setTheme(b.getAttribute('data-t'), 1); }); });

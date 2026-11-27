@@ -549,11 +549,17 @@ h2[data-m="h"]::after { content: ""; display: block; width: 64px; height: 6px; m
 /* tanıtım videosu: iki öğe, medya sorgusuyla biri görünür (gizli olan preload=none, indirilmez) */
 .vid { padding-top: 0; }
 .vid-sheet { margin: 0; padding: 10px; max-width: 1040px; margin-inline: auto; }
-.vid-sheet video { display: block; width: 100%; height: auto; background: #000; border-radius: 2px; }
+.vid-sheet video { display: none; width: 100%; height: auto; background: var(--surface); border-radius: 2px; }
 .vid-sheet .vid-h { aspect-ratio: 16 / 9; }
-.vid-sheet .vid-v { display: none; aspect-ratio: 9 / 16; max-height: 78svh; width: auto; margin-inline: auto; }
+.vid-sheet .vid-v { aspect-ratio: 4 / 5; max-height: 78svh; width: auto; margin-inline: auto; }
+/* tema + yön: yalnız bir video görünür (gizliler preload=none, indirilmez) */
+.vid-sheet .vid-h.vt-l { display: block; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vid-sheet .vt-l { display: none !important; } :root:not([data-theme="light"]) .vid-sheet .vid-h.vt-d { display: block; } }
+:root[data-theme="dark"] .vid-sheet .vt-l { display: none !important; } :root[data-theme="dark"] .vid-sheet .vid-h.vt-d { display: block; }
+@media (max-width: 700px) { .vid-sheet .vid-h { display: none !important; } .vid-sheet .vid-v.vt-l { display: block; } }
+@media (max-width: 700px) and (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vid-sheet .vid-v.vt-d { display: block; } }
+@media (max-width: 700px) { :root[data-theme="dark"] .vid-sheet .vid-v.vt-d { display: block; } }
 .vid-sheet video:focus-visible { outline: 2px solid var(--ring-c); outline-offset: 2px; }
-@media (max-width: 700px) { .vid-sheet .vid-h { display: none; } .vid-sheet .vid-v { display: block; } }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; scroll-behavior: auto !important; }
