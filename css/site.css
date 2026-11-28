@@ -277,18 +277,23 @@ h2[data-m="h"]::after { content: ""; display: block; width: 64px; height: 6px; m
 .story-apps li { display: inline-flex; align-items: center; gap: 10px; }
 .story-note-static, .story-note { font: 400 11px/16px var(--font-mono); color: var(--text-3); }
 .story-note-static { text-align: right; }
-.story-note, .story-over, .story-scrim, .story-load { display: none; }
+.story-note, .story-scrim, .story-load { display: none; }
+.story--static .story-frame { display: none; }  /* statik düzende adım kareleri yeter; poster yalnız kaydırma başlangıcı (0. kare) */
+/* temaya göre görsel çifti (hikâye posteri/kareleri, B2 bölgesi): açık varsayılan, koyu sistem ya da zorlanmış */
+.thimg.vt-d { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .thimg.vt-l { display: none; } :root:not([data-theme="light"]) .thimg.vt-d { display: block; } }
+:root[data-theme="dark"] .thimg.vt-l { display: none; } :root[data-theme="dark"] .thimg.vt-d { display: block; }
 @media (min-width: 900px) { .story-steps { grid-template-columns: 1fr 1fr; gap: 32px 24px; } .story-note-static { grid-column: 1 / -1; } }
 @media (max-width: 640px) { .story-panel { padding: 40px 16px; } .story-copy h2 { font-size: 26px; line-height: 32px; } .story-frame { margin-bottom: 28px; } .story-panel::after { inset: 8px; } .story-ticks i { display: none; } }
 
-/* kaydırma modu (story.js .story--scrub ekler): yapışkan tam genişlik bant; --sx = video çerçevesi yatay kaydırma (p 0.79 ölçü hizası) */
-.story--scrub { height: 400vh; padding: 0; --sx: min(0px, calc(50cqw - .4 * max(100cqw, 177.78cqh) - 24px)); }
+/* kaydırma modu (story.js .story--scrub ekler): yapışkan tam genişlik bant; --sx = video çerçevesi yatay kaydırma (karenin %97'sindeki etiketler görünür kalsın) */
+.story--scrub { height: 400vh; padding: 0; --sx: min(0px, calc(50cqw - .47 * max(100cqw, 177.78cqh) - 16px)); }
 .story--scrub .story-panel { position: sticky; top: var(--nav-h); height: calc(100svh - var(--nav-h)); padding: 0; container-type: size; }
 .story--scrub .story-stage { position: absolute; inset: 0; display: block; max-width: none; margin: 0; }
 .story--scrub .story-frame { position: absolute; inset: auto; left: calc(50% + var(--sx)); top: 50%; width: max(100cqw, 177.78cqh); height: auto; margin: 0; border-radius: 0; transform: translate(-50%, -50%); }
 .story--scrub .story-video { display: block; transition: opacity var(--dur-3); }
 .story--scrub .story-scrim { display: block; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgb(7 9 12 / .94) 0%, rgb(7 9 12 / .86) 30%, rgb(7 9 12 / 0) 56%), linear-gradient(transparent 75%, rgb(7 9 12 / .6)); }
+  background: linear-gradient(90deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 86%, transparent) 30%, transparent 52%), linear-gradient(transparent 80%, color-mix(in srgb, var(--bg) 55%, transparent)); }
 .story--scrub .story-copy { display: flex; flex-direction: column; justify-content: center; position: absolute; left: max(56px, calc((100cqw - var(--wrap)) / 2 + 24px)); top: clamp(24px, 6cqh, 56px); bottom: clamp(24px, 6cqh, 56px); width: min(400px, 36cqw); z-index: 3; }
 .story--scrub .story-copy h2 { margin-bottom: 32px; }
 .story--scrub .story-steps { display: block; position: relative; padding-left: 28px; }
@@ -300,7 +305,7 @@ h2[data-m="h"]::after { content: ""; display: block; width: 64px; height: 6px; m
 .story--scrub .story-step.done::after { transform: none; opacity: .5; }
 .story--scrub .story-step:last-of-type { padding-bottom: 0; }
 .story--scrub .story-step:last-of-type::after { display: none; }
-.story--scrub .story-step .still, .story--scrub .story-note-static { display: none; }
+.story--scrub .story-step .still, .story--scrub .story-note-static { display: none !important; }  /* .thimg tema kurallarından güçlü */
 .story--scrub .story-step h3 { font-size: 17px; line-height: 26px; color: var(--text-3); }
 .story--scrub .story-step.live h3 { color: var(--text-1); }
 .story--scrub .story-step > div > :not(h3) { display: none; }
@@ -311,11 +316,6 @@ h2[data-m="h"]::after { content: ""; display: block; width: 64px; height: 6px; m
 .story--scrub .story-note { display: block; position: absolute; left: max(56px, calc((100cqw - var(--wrap)) / 2 + 24px)); bottom: 36px; z-index: 3; }
 .story--scrub.story--ready .story-video { opacity: 1; }
 .story--scrub.story--ready .story-poster { opacity: 0; transition: opacity var(--dur-3); }
-.story--scrub.story--ready .story-over { display: block; position: absolute; left: calc(50% + var(--sx)); top: 50%; width: max(100cqw, 177.78cqh); aspect-ratio: 16 / 9; transform: translate(-50%, -50%); pointer-events: none; z-index: 1; }
-.story-dims, .story-labels { position: absolute; inset: 0; width: 100%; height: 100%; opacity: var(--dimo, 0); }
-.story-dims line { stroke: var(--dim); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: var(--dd, 1); }
-.story-labels span { position: absolute; transform: translate(-50%, -50%); }
-.story-labels span.l { transform: translate(0, -50%); }
 .story--scrub .story-load { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform-origin: left; transform: scaleX(var(--lp, 0)); z-index: 4; }
 .story--ready .story-load { opacity: 0; transition: opacity var(--dur-3); }
 

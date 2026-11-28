@@ -38,7 +38,7 @@
     'story.2t': 'Not a mesh, a real solid', 'story.2d': 'Every model is built as B-rep, so the STEP file keeps its exact dimensions.',
     'story.3t': 'Dimensions are verified', 'story.3d': 'Volume, wall thickness and hole positions are checked; if something is off, the model repairs itself.',
     'story.4t': 'Send it to your CAD app', 'story.4d': 'Opens as a new part in Fusion, SolidWorks, Blender and more.', 'story.4l': 'See integrations',
-    'story.note': 'Illustrative footage', 'copy': 'Copy', 'copied': 'Copied',
+    'story.note': 'Generated with Google Flow (Veo) · illustrative', 'copy': 'Copy', 'copied': 'Copied',
     'how.title': 'Real CAD, first try', 'how.dl': 'Outer diameter', 'b.s2': 'Thickness', 'b.s3': 'Hole count',
     'b.1t': 'Change it by dimension', 'b.1d': 'The model is parametric: change diameter, thickness or hole count with a slider, without regenerating.',
     'b.2t': 'A real CAD file', 'b.2d': 'Output is a B-rep solid: STEP keeps exact dimensions; GLB and STL too.',

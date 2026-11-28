@@ -117,55 +117,48 @@
     </div>
   </section>
 
-  <!-- Hikâye bandı: varsayılan statik düzen; js/story.js koşullar uygunsa story--scrub ekler (vault/video-plani.md §A, site-v4-kimlik.md §4.2) -->
+  <!-- Hikâye bandı: varsayılan statik düzen; js/story.js koşullar uygunsa story--scrub ekler. Açık/koyu temaya ayrı video + kareler (vault/video-plani.md §E–F) -->
   <section id="hikaye" class="story story--static" aria-labelledby="h-story">
-    <div class="story-panel" data-theme="dark">
+    <div class="story-panel">
       <div class="story-ticks" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
       <div class="story-stage">
         <div class="story-frame">
-          <img class="story-poster" src="assets/video/story-poster-1600.webp" srcset="assets/video/story-poster-800.webp 800w, assets/video/story-poster-1600.webp 1600w" sizes="(min-width: 1300px) 1240px, 100vw" loading="lazy" decoding="async" alt="" width="1600" height="900">
+          <img class="story-poster thimg vt-l" src="assets/video/story-light-1600.webp" srcset="assets/video/story-light-800.webp 800w, assets/video/story-light-1600.webp 1600w" sizes="(min-width: 1300px) 1240px, 100vw" loading="lazy" decoding="async" alt="" width="1600" height="900">
+          <img class="story-poster thimg vt-d" src="assets/video/story-dark-1600.webp" srcset="assets/video/story-dark-800.webp 800w, assets/video/story-dark-1600.webp 1600w" sizes="(min-width: 1300px) 1240px, 100vw" loading="lazy" decoding="async" alt="" width="1600" height="900">
           <video class="story-video" muted playsinline preload="none" disablepictureinpicture tabindex="-1" aria-hidden="true"></video>
         </div>
         <div class="story-scrim"></div>
-        <div class="story-over" aria-hidden="true">
-          <svg class="story-dims" viewBox="0 0 1600 900">
-            <line pathLength="1" x1="766" y1="470" x2="766" y2="852"/><line pathLength="1" x1="1428" y1="470" x2="1428" y2="852"/><line pathLength="1" x1="766" y1="836" x2="1428" y2="836"/>
-            <line pathLength="1" x1="1150" y1="438" x2="1390" y2="406"/>
-            <line pathLength="1" x1="1298" y1="316" x2="1362" y2="262"/>
-          </svg>
-          <div class="story-labels">
-            <span class="dimtag" data-x="1097" data-y="836">Ø100</span>
-            <span class="dimtag l" data-x="1396" data-y="406">Ø35</span>
-            <span class="dimtag l" data-x="1368" data-y="262">6 × Ø6.6</span>
-          </div>
-        </div>
         <div class="story-copy">
           <h2 id="h-story" data-i18n="story.t">Bir cümleden STEP dosyasına</h2>
           <ol class="story-steps">
             <li class="story-step" data-in="0" data-out="0.30">
-              <img class="still" src="assets/video/still-1.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-l" src="assets/video/story-light-1.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-d" src="assets/video/story-dark-1.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
               <div><h3 data-i18n="story.1t">Cümleyle başla</h3><p data-i18n="story.1d">Parçayı ölçüleriyle yaz: Ø100 mm flanş, 6 × M6 delik, merkezde Ø35.</p></div>
             </li>
             <li class="story-step" data-in="0.30" data-out="0.64">
-              <img class="still" src="assets/video/still-2.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-l" src="assets/video/story-light-2.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-d" src="assets/video/story-dark-2.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
               <div><h3 data-i18n="story.2t">Mesh değil, gerçek katı</h3><p data-i18n="story.2d">Her model B-rep olarak kurulur; STEP dosyası ölçüsünü korur.</p></div>
             </li>
             <li class="story-step" data-in="0.64" data-out="0.87">
-              <img class="still" src="assets/video/still-3.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-l" src="assets/video/story-light-3.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-d" src="assets/video/story-dark-3.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
               <div><h3 data-i18n="story.3t">Ölçüler doğrulanır</h3><p data-i18n="story.3d">Hacim, et kalınlığı ve delik konumları kontrol edilir; sorun varsa model kendini düzeltir.</p></div>
             </li>
             <li class="story-step" data-in="0.87" data-out="1">
-              <img class="still" src="assets/video/still-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-l" src="assets/video/story-light-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+              <img class="still thimg vt-d" src="assets/video/story-dark-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
               <div>
                 <h3 data-i18n="story.4t">Programına gönder</h3><p data-i18n="story.4d">Fusion, SolidWorks, Blender ve diğerlerinde yeni parça olarak açılır.</p>
                 <ul class="story-apps"><li><span class="lgo s32" data-i="Fu"><img src="assets/logos/fusion.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li><li><span class="lgo s32" data-i="Bl"><img src="assets/logos/blender.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li><li><span class="lgo s32" data-i="On"><img src="assets/logos/onshape.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li></ul>
                 <a class="link" href="#entegrasyonlar"><span data-i18n="story.4l">Entegrasyonlara bak</span><svg class="i" aria-hidden="true"><use href="assets/icons.svg#arrow"/></svg></a>
               </div>
             </li>
-            <li class="story-note-static" data-i18n="story.note">Temsilî görüntü</li>
+            <li class="story-note-static" data-i18n="story.note">Google Flow (Veo) ile üretildi · temsilî</li>
           </ol>
         </div>
-        <p class="story-note" data-i18n="story.note">Temsilî görüntü</p>
+        <p class="story-note" data-i18n="story.note">Google Flow (Veo) ile üretildi · temsilî</p>
         <div class="story-load" aria-hidden="true"></div>
       </div>
     </div>
@@ -220,7 +213,8 @@
           <span class="zl" aria-hidden="true">B2</span>
           <h3 data-i18n="b.4t">Programında açılır</h3><p data-i18n="story.4d">Fusion, SolidWorks, Blender ve diğerlerinde yeni parça olarak açılır.</p>
           <div class="show flush">
-            <img src="assets/video/still-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+            <img class="thimg vt-l" src="assets/video/story-light-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
+            <img class="thimg vt-d" src="assets/video/story-dark-4.webp" width="960" height="540" loading="lazy" decoding="async" alt="">
             <ul class="apps-row"><li><span class="lgo s32" data-i="Fu"><img src="assets/logos/fusion.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Fusion</li><li><span class="lgo s32" data-i="Bl"><img src="assets/logos/blender.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Blender</li><li><span class="lgo s32" data-i="On"><img src="assets/logos/onshape.svg" width="20" height="20" alt="" loading="lazy" onload="this.parentNode.classList.add('ok')" onerror="this.hidden=true"></span>Onshape</li></ul>
           </div>
         </li>
