@@ -1,9 +1,11 @@
-/* Kaydırmayla oynayan hikâye (#hikaye). vault/video-plani.md §A3–A6. Bağımlılıksız.
+/* Kaydırmayla oynayan hikâye (#hikaye). vault/video-plani.md §A3–A5, §E (açık/koyu ayrı video). Bağımlılıksız.
    Kaydırma modu yalnız geniş ekran + hareket azaltma kapalı + veri tasarrufu kapalı + hızlı ağda açılır;
    aksi halde HTML'deki statik düzen kalır ve video hiç indirilmez. */
 (function () {
   'use strict';
-  var SRC = 'assets/video/story-1280.mp4';
+  var SRC = { light: 'assets/video/story-light.mp4', dark: 'assets/video/story-dark.mp4' };
+  var de = document.documentElement, dark = matchMedia('(prefers-color-scheme: dark)');
+  function theme() { var v = de.getAttribute('data-theme'); return v === 'light' || v === 'dark' ? v : dark.matches ? 'dark' : 'light'; }
   var sec = document.getElementById('hikaye');
   var wide = matchMedia('(min-width: 900px)');
   var still = matchMedia('(prefers-reduced-motion: reduce)');
@@ -20,13 +22,7 @@
   var steps = [].slice.call(sec.querySelectorAll('.story-step')).map(function (el) {
     return { el: el, a: +el.getAttribute('data-in'), b: +el.getAttribute('data-out') };
   });
-  var dims = sec.querySelector('.story-dims');
-  [].forEach.call(sec.querySelectorAll('.story-labels [data-x]'), function (el) {
-    el.style.left = el.getAttribute('data-x') / 16 + '%';
-    el.style.top = el.getAttribute('data-y') / 9 + '%';
-  });
-
-  var on = false, ready = false, loading = false, visible = false, raf = 0;
+  var on = false, ready = false, want = '', visible = false, raf = 0, blobs = {}, urls = {};
   var top = 0, range = 1, cur = 0, lastP = -1;
 
   function measure() {
@@ -45,11 +41,6 @@
       s.el.classList.toggle('live', live);
       s.el.classList.toggle('done', p >= s.b && s.b < 1);
     });
-    if (dims) {
-      var dp = Math.min(clamp((p - 0.72) / 0.02), clamp((0.86 - p) / 0.02));
-      sec.style.setProperty('--dimo', dp.toFixed(3));
-      sec.style.setProperty('--dd', (1 - clamp((p - 0.72) / 0.06)).toFixed(3));
-    }
   }
 
   function tick() {
@@ -58,19 +49,39 @@
     var p = progress();
     if (p !== lastP) { paint(p); lastP = p; }
     if (ready && video.duration) {
-      var target = p * (video.duration - 1 / 24);
+      var target = p * (video.duration - 1 / 30);
       cur += (target - cur) * 0.18;
       if (Math.abs(target - cur) < 0.002) cur = target;
-      if (!video.seeking && Math.abs(video.currentTime - cur) > 1 / 48) video.currentTime = cur;
+      if (!video.seeking && Math.abs(video.currentTime - cur) > 1 / 60) video.currentTime = cur;
     }
     raf = requestAnimationFrame(tick);
   }
   function loop() { if (!raf && on && visible && !document.hidden) raf = requestAnimationFrame(tick); }
 
+  function show(th) {
+    if (th !== want) return;
+    video.addEventListener('loadeddata', function () {
+      if (th !== want) return;
+      video.pause();
+      ready = true;
+      cur = progress() * (video.duration - 1 / 30);
+      video.currentTime = cur;
+      sec.classList.add('story--ready');
+    }, { once: true });
+    video.src = urls[th] || (urls[th] = URL.createObjectURL(blobs[th]));
+    video.load();
+  }
+  /* temaya uygun videoyu indir (bir kez; Blob bellekte kalır, tema dönüşünde yeniden indirilmez) */
   function load() {
-    if (loading) return;
-    loading = true;
-    fetch(SRC).then(function (res) {
+    var th = theme();
+    if (th === want) return;
+    want = th; ready = false;
+    sec.classList.remove('story--ready');
+    sec.style.setProperty('--lp', 0);
+    if (blobs[th]) { show(th); return; }
+    if (blobs[th] === null) return;                 // indiriliyor
+    blobs[th] = null;
+    fetch(SRC[th]).then(function (res) {
       if (!res.ok) throw new Error(res.status);
       var total = +res.headers.get('Content-Length') || 0;
       if (!total || !res.body || !window.Response) return res.blob();
@@ -79,21 +90,12 @@
         return reader.read().then(function (r) {
           if (r.done) return new Blob(parts, { type: 'video/mp4' });
           parts.push(r.value); got += r.value.length;
-          sec.style.setProperty('--lp', (got / total).toFixed(3));
+          if (th === want) sec.style.setProperty('--lp', (got / total).toFixed(3));
           return pump();
         });
       })();
-    }).then(function (blob) {
-      video.addEventListener('loadeddata', function () {
-        video.pause();
-        ready = true;
-        cur = progress() * (video.duration - 1 / 24);
-        video.currentTime = cur;
-        sec.classList.add('story--ready');
-      }, { once: true });
-      video.src = URL.createObjectURL(blob);
-      video.load();
-    }).catch(function () { /* sessizce poster kalır; başlıklar yine çalışır */ });
+    }).then(function (blob) { blobs[th] = blob; show(th); })
+      .catch(function () { delete blobs[th]; /* sessizce poster kalır; başlıklar yine çalışır */ });
   }
 
   function setMode() {
@@ -113,6 +115,10 @@
   addEventListener('resize', function () { if (on) { measure(); lastP = -1; loop(); } });
   if (window.ResizeObserver) new ResizeObserver(function () { if (on) measure(); }).observe(document.body);
   [wide, still].forEach(function (m) { if (m.addEventListener) m.addEventListener('change', setMode); });
+  /* tema anahtarı (data-theme) ya da sistem teması değişince öbür videoya geç */
+  function retheme() { if (on && want) load(); }
+  if (dark.addEventListener) dark.addEventListener('change', retheme);
+  if (window.MutationObserver) new MutationObserver(retheme).observe(de, { attributes: true, attributeFilter: ['data-theme'] });
 
   /* klavye: görünmeyen bir adımdaki bağlantıya odak gelirse o adıma kaydır */
   sec.addEventListener('focusin', function (e) {
