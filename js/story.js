@@ -3,7 +3,7 @@
    aksi halde HTML'deki statik düzen kalır ve video hiç indirilmez. */
 (function () {
   'use strict';
-  var SRC = { light: 'assets/video/story-light.mp4', dark: 'assets/video/story-dark.mp4' };
+  var SRC = { light: 'assets/video/story-light.mp4?v=20261128b', dark: 'assets/video/story-dark.mp4?v=20261128b' };
   var de = document.documentElement, dark = matchMedia('(prefers-color-scheme: dark)');
   function theme() { var v = de.getAttribute('data-theme'); return v === 'light' || v === 'dark' ? v : dark.matches ? 'dark' : 'light'; }
   var sec = document.getElementById('hikaye');
