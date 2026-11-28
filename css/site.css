@@ -564,3 +564,12 @@ h2[data-m="h"]::after { content: ""; display: block; width: 64px; height: 6px; m
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* tam tanıtım: her temada koyu bant (data-theme="dark" belirteçleri), video zemini = --bg */
+.walk { background: var(--bg); color: var(--text-1); padding: 64px 0 80px; border-top: 1px solid var(--line); }
+.walk-sheet { margin: 0; padding: 10px; max-width: 1040px; margin-inline: auto; background: var(--surface); border-color: var(--line-2); }
+.walk-sheet video { width: 100%; height: auto; background: var(--bg); border-radius: 2px; }
+.walk-sheet .walk-h { display: block; aspect-ratio: 16 / 9; }
+.walk-sheet .walk-v { display: none; aspect-ratio: 9 / 16; max-height: 78svh; width: auto; margin-inline: auto; }
+@media (max-width: 700px) { .walk { padding: 40px 0 56px; } .walk-sheet .walk-h { display: none; } .walk-sheet .walk-v { display: block; } }
+.walk-sheet video:focus-visible { outline: 2px solid var(--ring-c); outline-offset: 2px; }

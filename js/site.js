@@ -32,6 +32,7 @@
     'hero.works': 'Fusion, SolidWorks, Blender and 13 more programs', 'tb.part': 'Part', 'tb.unit': 'Unit', 'tb.out': 'Output', 'tb.progs': 'Programs', 'tb.credit': 'Free', 'tb.creditv': '30 / day',
     'hero.ans': 'Flange ready: Ø100 × 10 mm, 6 × Ø6.6 holes, volume 66.9 cm³. Verification passed.',
     'vid.title': 'AICADBridge in 21 seconds', 'vid.lead': 'From one sentence to an exact, dimensioned CAD model: a short launch video.', 'vid.label': 'AICADBridge launch video (21 seconds)',
+    'walk.title': 'Full walkthrough (43 s)', 'walk.lead': 'From one sentence to a dimensioned CAD model and into your program, end to end. No sound.', 'walk.label': 'AICADBridge full walkthrough video (43 seconds, no sound)',
     'story.t': 'From one sentence to a STEP file',
     'story.1t': 'Start with a sentence', 'story.1d': 'Describe the part with its dimensions: Ø100 mm flange, 6 × M6 holes, Ø35 bore.',
     'story.2t': 'Not a mesh, a real solid', 'story.2d': 'Every model is built as B-rep, so the STEP file keeps its exact dimensions.',
@@ -82,6 +83,19 @@
   function dict() { return de.lang === 'en' ? EN : TR; }
   function tx(el) { var v = dict()[el.getAttribute('data-i18n')]; if (v != null) el.textContent = v; }
 
+  /* tam tanıtım (#tanitim): dile göre promo-tr/en; yatay her zaman, dikey yalnız <=700px'te yüklenir (preload=none, gizli varyant ağa çıkmaz) */
+  var wh = $$('.walk-h')[0], wv = $$('.walk-v')[0], wmq = window.matchMedia ? matchMedia('(max-width: 700px)') : null;
+  function promoSet(v, kind, stop) {
+    var l = de.lang === 'en' ? 'en' : 'tr', src = 'assets/video/promo-' + l + '-' + kind + '.mp4', pos = 'assets/video/promo-' + l + '-' + kind + '-poster.webp';
+    if (v.getAttribute('src') === src) return;
+    if (stop && !v.paused) v.pause();
+    v.setAttribute('src', src); v.setAttribute('poster', pos);
+  }
+  function promoSync(stop) {
+    if (!wh) return;
+    promoSet(wh, '1080', stop);
+    if (wv && wmq && wmq.matches) promoSet(wv, 'vertical', stop);
+  }
   var langBtns = $$('.lang');
   function setLang(lang) {
     de.lang = lang;
@@ -89,11 +103,13 @@
     $$('[data-i18n-html]').forEach(function (el) { var v = dict()[el.getAttribute('data-i18n-html')]; if (v != null) el.innerHTML = v; });
     $$('[data-i18n-aria]').forEach(function (el) { var v = dict()[el.getAttribute('data-i18n-aria')]; if (v != null) { el.setAttribute('aria-label', v); if (el.hasAttribute('title')) el.title = v; } });
     langBtns.forEach(function (b) { b.textContent = lang === 'en' ? 'TR' : 'EN'; });
+    promoSync(true);
     try { localStorage.setItem('aicad.lang', lang); } catch (e) { /* gizli pencere */ }
   }
   var initial = new URLSearchParams(location.search).get('lang');
   if (!initial) { try { initial = localStorage.getItem('aicad.lang'); } catch (e) { initial = null; } }
-  if (initial === 'en') setLang('en');
+  if (initial === 'en') setLang('en'); else promoSync();
+  if (wmq) { var pm = function () { promoSync(); }; if (wmq.addEventListener) wmq.addEventListener('change', pm); else wmq.addListener(pm); }
   langBtns.forEach(function (b) { b.addEventListener('click', function () { setLang(de.lang === 'en' ? 'tr' : 'en'); }); });
 
   /* tema: Sistem / Açık / Koyu; anahtar aicb-theme (ön boyama betiği <head>'de) */
